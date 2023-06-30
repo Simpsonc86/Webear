@@ -1,4 +1,4 @@
-from .db import db, environment, SCHEMA
+from .db import db
 from .watchlists_stocks import watchlists_stocks
 
 class Watchlist(db.Model):
