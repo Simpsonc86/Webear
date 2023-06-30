@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: c0cea58ec859
-Revises: ffdc0a98111c
-Create Date: 2023-06-30 16:37:51.254537
+Revision ID: 52e51f2ad1bb
+Revises: 
+Create Date: 2023-06-30 17:57:17.902351
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'c0cea58ec859'
-down_revision = 'ffdc0a98111c'
+revision = '52e51f2ad1bb'
+down_revision = None
 branch_labels = None
 depends_on = None
 
@@ -28,6 +28,15 @@ def upgrade():
     sa.Column('created_at', sa.Date(), nullable=False),
     sa.Column('updated_at', sa.Date(), nullable=False),
     sa.PrimaryKeyConstraint('id')
+    )
+    op.create_table('users',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('username', sa.String(length=40), nullable=False),
+    sa.Column('email', sa.String(length=255), nullable=False),
+    sa.Column('hashed_password', sa.String(length=255), nullable=False),
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('email'),
+    sa.UniqueConstraint('username')
     )
     op.create_table('transactions',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -63,5 +72,6 @@ def downgrade():
     op.drop_table('watchlists_stocks')
     op.drop_table('watchlists')
     op.drop_table('transactions')
+    op.drop_table('users')
     op.drop_table('stocks')
     # ### end Alembic commands ###

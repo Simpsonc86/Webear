@@ -1,4 +1,5 @@
-from .db import db, environment, SCHEMA
+from .db import db, environment, SCHEMA, add_prefix_for_prod
+
 
 class Transaction(db.Model):
     __tablename__ = 'transactions'
@@ -9,10 +10,10 @@ class Transaction(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.Date, nullable = False)
     transaction_type = db.Column(db.String, nullable = False)
-    share_price = db.Column(db.String, nullable = False)
-    shares_moved = db.Column(db.String, nullable = False)
-    stock_id = db.Column(db.Integer, db.ForeignKey("stocks.id"))
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    share_price = db.Column(db.Float, nullable = False)
+    shares_moved = db.Column(db.Integer, nullable = False)
+    stock_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("stocks.id")))
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
 
     #relationship attributes
     stock = db.relationship("Stock", back_populates="transactions")
