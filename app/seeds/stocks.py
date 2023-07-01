@@ -17,6 +17,9 @@ def seed_stocks():
     db.session.add(berkshire)
     db.session.commit()
 
+    all_stocks = [alphabet, tesla, berkshire]
+    return all_stocks
+
 
 def undo_stocks():
     if environment == "production":

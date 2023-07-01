@@ -28,6 +28,7 @@ def seed():
 
     seed_users()
     watch_stocks = seed_stocks()
+    print ("watch_stocks in init", watch_stocks)
     seed_transactions()
     seed_watchlists(watch_stocks)
 

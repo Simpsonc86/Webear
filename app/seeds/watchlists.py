@@ -5,6 +5,8 @@ from sqlalchemy.sql import text
 
 def seed_watchlists(watch_stocks):
 
+    print("watch stocks in watchlist seeder", watch_stocks)
+
     watchlist1 = Watchlist(
         name = "energy", user_id = 1, stocks = watch_stocks
     )
