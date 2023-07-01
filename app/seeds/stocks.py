@@ -18,6 +18,7 @@ def seed_stocks():
     db.session.commit()
 
     all_stocks = [alphabet, tesla, berkshire]
+
     return all_stocks
 
 

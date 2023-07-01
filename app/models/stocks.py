@@ -19,3 +19,16 @@ class Stock(db.Model):
     transactions = db.relationship("Transaction",  back_populates="stock")
 
     watchlists = db.relationship("Watchlist", secondary=watchlists_stocks, back_populates="stocks")
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "base_price": self.base_price,
+            "company_name": self.company_name,
+            "ticker_symbol": self.ticker_symbol,
+            "available_shares": self.available_shares,
+            "total_shares": self.total_shares,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at
+
+        }
