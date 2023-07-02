@@ -13,7 +13,7 @@ function Watchlists() {
     );
 
 
-    console.log("finally", watchlists)
+    // console.log("finally", watchlists)
     useEffect(() => {
         dispatch(getWatchlistsThunk(sessionUser));
     }, [dispatch, sessionUser]);

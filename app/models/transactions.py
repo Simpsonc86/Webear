@@ -28,5 +28,8 @@ class Transaction(db.Model):
             "share_price": self.share_price,
             "shares_moved": self.shares_moved,
             "user_id": self.user_id,
-            "stock_id": self.stock_id
+            "stock_id": self.stock_id,
+            "user": self.user.to_dict(),
+            "stock": self.stock.to_dict()
+
         }
