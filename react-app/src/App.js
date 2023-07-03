@@ -5,6 +5,11 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
+import Watchlists from "./components/Watchlists";
+import Portfolio from "./components/Portfolio"
+import Stocks from "./components/Stock"
+import Balance from "./components/Balance";
+import LandingPage from "./components/LandingPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,8 +23,23 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path="/">
+            <LandingPage/>
+          </Route>
           <Route path="/login" >
             <LoginFormPage />
+          </Route>
+          <Route path="/add_to_balance">
+            <Balance />
+          </Route>
+          <Route path="/stocks">
+            <Stocks />
+          </Route>
+          <Route path="/portfolio">
+            <Portfolio />
+          </Route>
+          <Route path="/watchlist">
+            <Watchlists/>
           </Route>
           <Route path="/signup">
             <SignupFormPage />

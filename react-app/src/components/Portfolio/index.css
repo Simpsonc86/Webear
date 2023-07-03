@@ -1,0 +1,21 @@
+.holding {
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+}
+
+.ticker {
+    width: 2em;
+}
+
+.company {
+    width: 7em
+}
+
+.mktValue {
+
+}
+
+.avgPrice {
+
+}

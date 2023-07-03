@@ -1,11 +1,17 @@
 // constants
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
+const ADD_TO_BALANCE = "session/ADD_TO_BALANCE"
 
 const setUser = (user) => ({
 	type: SET_USER,
 	payload: user,
 });
+
+const addToBalance = (balance) => ({
+	type: ADD_TO_BALANCE,
+	balance
+})
 
 const removeUser = () => ({
 	type: REMOVE_USER,
@@ -67,6 +73,23 @@ export const logout = () => async (dispatch) => {
 	}
 };
 
+export const addToBalanceThunk = (amount) => async (dispatch) => {
+	const response = await fetch("/api/users/add_to_balance", {
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({
+			amount
+		}),
+	});
+
+	if (response.ok) {
+		const data = await response.json();
+		dispatch(addToBalance(data));
+	}
+}
+
 export const signUp = (username, email, password) => async (dispatch) => {
 	const response = await fetch("/api/auth/signup", {
 		method: "POST",
@@ -77,6 +100,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
 			username,
 			email,
 			password,
+			balance:0
 		}),
 	});
 
@@ -100,6 +124,8 @@ export default function reducer(state = initialState, action) {
 			return { user: action.payload };
 		case REMOVE_USER:
 			return { user: null };
+		case ADD_TO_BALANCE:
+			return {user : {...state.user, balance: action.payload}}
 		default:
 			return state;
 	}

@@ -14,3 +14,12 @@ class Watchlist(db.Model):
     #relationship attributes
     user = db.relationship("User",  back_populates="watchlists")
     stocks = db.relationship("Stock", secondary=watchlists_stocks, back_populates="watchlists")
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "user_id": self.user_id,
+            "user": self.user.to_dict(),
+            "stocks": [stock.to_dict() for stock in self.stocks]
+        }
