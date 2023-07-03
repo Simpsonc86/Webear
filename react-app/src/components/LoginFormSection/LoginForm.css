@@ -1,0 +1,18 @@
+.formclass{
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    gap: 30px;
+}
+.email{
+    display: flex;
+    flex-direction: column;
+}
+.password{
+    display: flex;
+    flex-direction: column;
+}
+input{
+    width: 70%;
+    height: 50px;
+}
