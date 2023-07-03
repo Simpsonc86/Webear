@@ -34,7 +34,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE stocks SET SCHEMA {SCHEMA};")
 
     op.create_table('users',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -62,7 +62,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE transactions SET SCHEMA {SCHEMA};")
 
     op.create_table('watchlists',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -72,8 +72,8 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-        
+        op.execute(f"ALTER TABLE watchlists SET SCHEMA {SCHEMA};")
+
     op.create_table('watchlists_stocks',
     sa.Column('stock_id', sa.Integer(), nullable=False),
     sa.Column('watchlist_id', sa.Integer(), nullable=False),
@@ -82,7 +82,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('stock_id', 'watchlist_id')
     )
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE watchlists_stocks SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 
