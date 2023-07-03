@@ -12,4 +12,4 @@ watchlists_stocks = Table(
 
 
 if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
+       watchlists_stocks.schema = SCHEMA
