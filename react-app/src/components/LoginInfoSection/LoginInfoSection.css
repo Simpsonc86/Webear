@@ -1,0 +1,29 @@
+.cont{
+    background-color: blue;
+    color: white;
+}
+
+.title{
+    font-size: 30px;
+    margin-left: 70px;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.bigText{
+    width: 40%;
+    font-size: 40px;
+}
+
+.join{
+    font-size: 24px;
+    opacity: .9;
+}
+.fees{
+    font-size: 20px;
+    opacity: .5;
+}

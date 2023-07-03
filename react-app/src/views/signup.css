@@ -1,0 +1,13 @@
+.bigcont{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    padding: 0px;
+    margin: 0px;
+}
+
+.left{
+    padding: 0px;
+    margin: 0px;
+    background-color: blue;
+}

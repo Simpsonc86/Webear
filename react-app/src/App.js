@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import SignupFormPage from "./components/SignupFormPage";
-import LoginFormPage from "./components/LoginFormPage";
+import Signup from "./views/signup";
+import Login from "./views/login";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import Watchlists from "./components/Watchlists";
@@ -27,7 +27,7 @@ function App() {
             <LandingPage/>
           </Route>
           <Route path="/login" >
-            <LoginFormPage />
+            <Login />
           </Route>
           <Route path="/add_to_balance">
             <Balance />
@@ -42,7 +42,7 @@ function App() {
             <Watchlists/>
           </Route>
           <Route path="/signup">
-            <SignupFormPage />
+            <Signup />
           </Route>
         </Switch>
       )}
