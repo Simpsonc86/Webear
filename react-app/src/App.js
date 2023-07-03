@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import Watchlists from "./components/Watchlists";
 import Portfolio from "./components/Portfolio"
 import Stocks from "./components/Stock"
+import Balance from "./components/Balance";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,9 @@ function App() {
         <Switch>
           <Route path="/login" >
             <LoginFormPage />
+          </Route>
+          <Route path="/add_to_balance">
+            <Balance />
           </Route>
           <Route path="/stocks">
             <Stocks />

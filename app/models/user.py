@@ -13,6 +13,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    balance = db.Column(db.Float)
 
     transactions = db.relationship("Transaction", back_populates="user")
     watchlists = db.relationship("Watchlist", back_populates="user")
@@ -32,5 +33,6 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'balance': self.balance
         }
