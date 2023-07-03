@@ -9,6 +9,7 @@ import Watchlists from "./components/Watchlists";
 import Portfolio from "./components/Portfolio"
 import Stocks from "./components/Stock"
 import Balance from "./components/Balance";
+import LandingPage from "./components/LandingPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +23,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path="/">
+            <LandingPage/>
+          </Route>
           <Route path="/login" >
             <Login />
           </Route>
