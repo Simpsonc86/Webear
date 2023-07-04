@@ -16,12 +16,7 @@ export default function LandingPage({ isLoaded }) {
                         <p className="float">0 Commissions and no deposit minimums.</p>
                         <p className="float">Everyone gets smart tools for smart investing.</p>
                     </div>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
+                
                     <NavLink className="get-started" to="/sign-up">Get Started</NavLink>
                 </div>
             </div>
