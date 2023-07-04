@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getAllStocksThunk } from "../../store/stocks";
 import { useEffect } from "react"
+import "./Stock.css"
 
 function Stocks() {
 
@@ -14,12 +15,21 @@ function Stocks() {
 
     useEffect(() => {
         dispatch(getAllStocksThunk());
-    }, [dispatch, ]);
+    }, [dispatch,]);
 
 
 
     return (
-        <h1>a</h1>
+        <>
+            <h1>All Stocks</h1>
+            <div className="all-stock-container"> 
+                {stocks.map((stock, index) => (
+                    <div key={index}>
+                        <h2></h2>
+                    </div>
+                ))}
+            </div>
+        </>
     )
 }
 
