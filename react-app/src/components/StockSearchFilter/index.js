@@ -11,7 +11,7 @@ export default function StockSearchFilter() {
     const stocks = useSelector((state) => (state.stocks.stocks ? Object.values(state.stocks.stocks) : []));
     console.log("Type of stocks is: ",typeof stocks);
     console.log("These are the stocks from the store--->", stocks);
-    const [searchList, setSearchList] = useState([])
+    const [searchList, setSearchList] = useState(stocks)
     const stockList = [];
     
     stocks.forEach((stock)=>{
@@ -25,19 +25,15 @@ export default function StockSearchFilter() {
     
     const filterSearch = (e) => {
         const query = e.target.value;
-        let newList = [...stockList]
+        // let newList = [...stockList]
         
         console.log("This is the value of query",query);
-        // console.log("New list of stocks",newList);
-        
-        //    const filterByletter()
-        //     if(newList[0].company_name.indexOf("a")!==-1)
-        newList = newList.filter((stock) => stock.company_name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+            const newList = stockList.filter((stock) => stock.company_name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
         console.log("this is the filtered list", newList);
         
-        if (query.length){
-            // setSearchList(newList);
-        }
+        if (!query.length){
+            setSearchList([]);
+        }else setSearchList(newList)
       
     }
     console.log("USE STATE STOCKS",searchList);
@@ -45,13 +41,11 @@ export default function StockSearchFilter() {
     return (
         <div className='search-filter'>
             <input className='search-field' onChange={filterSearch} placeholder='Search for a Stock'></input>
-            <ol>
+            <div className="search-list-stock">
                 {searchList.map((stock, index) => (
-                    <li key={index}>
-                        <NavLink className="search-list-stock" to={`/stocks/${stock}`}>{stock}</NavLink>
-                    </li>
+                    <NavLink  key={index} to={`/`}>{stock.company_name}</NavLink>
                 ))}
-            </ol>
+            </div>           
         </div>
     )
 }

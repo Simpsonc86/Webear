@@ -1,0 +1,5 @@
+.search-list-stock{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
