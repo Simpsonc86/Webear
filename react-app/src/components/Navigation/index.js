@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+import StockSearchFilter from '../StockSearchFilter';
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
@@ -20,9 +21,7 @@ function Navigation({ isLoaded }) {
 					<NavLink className="nav-links"exact to="/stocks">Features</NavLink>
 				</div>
 				<div className='right-side-nav-links'>
-					<div className='search-filter'>
-						<input className='search-field' placeholder='Search Filter'></input>
-					</div>
+					<StockSearchFilter/>
 					{isLoaded && (
 						<div className='signup-login'>
 							<ProfileButton user={sessionUser} />
