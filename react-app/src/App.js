@@ -9,6 +9,7 @@ import Watchlists from "./components/Watchlists";
 import Portfolio from "./components/Portfolio"
 import Stocks from "./components/Stock"
 import Balance from "./components/Balance";
+import Transaction from "./components/Transaction";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/trade">
+            <Transaction />
           </Route>
         </Switch>
       )}

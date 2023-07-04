@@ -11,7 +11,7 @@ function Stocks() {
     );
 
 
-    console.log(stocks)
+
     useEffect(() => {
         dispatch(getAllStocksThunk());
     }, [dispatch, ]);
