@@ -1,0 +1,52 @@
+.signupFormClass{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.signupEmail{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70%;
+}
+.signupUsername{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70%;
+}
+.signupPassword{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70%;
+}
+.signupConfirmPassword{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70%;
+}
+.signupHeader{
+    margin-left: 120px;
+}
+.signupBotCont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+.signupInput{
+    border: 1px gray solid;
+    border-radius: 15px;
+    height: 30px;
+}
+.signupButton{
+    width: 500px;
+    height: 35px;
+    background-color: blue;
+    border-radius: 20px;
+    color: white;
+}
