@@ -8,6 +8,7 @@ import StockSearchFilter from '../StockSearchFilter';
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
 
+
 	return (
 		<div className='outer-nav-div'>
 			<div className='main-nav-div'>
