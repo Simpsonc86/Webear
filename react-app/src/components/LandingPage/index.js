@@ -17,7 +17,7 @@ export default function LandingPage({ isLoaded }) {
                         <p className="float">Everyone gets smart tools for smart investing.</p>
                     </div>
 
-                    <NavLink className="get-started" to="/sign-up">Get Started</NavLink>
+                    <NavLink className="get-started" to="/signup">Get Started</NavLink>
                 </div>
                 <div className='footer'>
                     <p>Disclaimer: This is not a real financial website with real-time stock prices and purchases!</p>
