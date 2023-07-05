@@ -4,22 +4,12 @@ import { getAllStocksThunk } from "../../store/stocks";
 import { NavLink } from "react-router-dom";
 import "./StockSearchFilter.css"
 
-
-
-
 export default function StockSearchFilter() {
     const dispatch = useDispatch()
     const stocks = useSelector((state) => (state.stocks.stocks ? Object.values(state.stocks.stocks) : []));
     // console.log("Type of stocks is: ",typeof stocks);
     // console.log("These are the stocks from the store--->", stocks);
     const [searchList, setSearchList] = useState([])
-    // const [filterQuery, setFilterQuery] = useState("")
-    const stockList = [];
-    
-    stocks.forEach((stock)=>{
-        stockList.push(stock)
-    })
-    // console.log("Search list of stocks ",stockList);
     
     useEffect(() => {
         dispatch(getAllStocksThunk());
@@ -28,29 +18,22 @@ export default function StockSearchFilter() {
     const filterSearch = (e) => {
         e.preventDefault()
         const query = e.target.value
-        // let newList = [...stockList]
-        
+               
         // console.log("This is the value of query",query);
-            const newList = stockList.filter((stock) => stock.company_name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+            const newList = stocks.filter((stock) => stock.company_name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
         // console.log("this is the filtered list", newList);
-        // if(!newList.length){
-        // return(<div className="search">No results found</div>)}
+
         if (!query.length){
             setSearchList([]);
         }else {
             setSearchList(newList)
-        }
-
-        
-
-        // onclick=setSearchList([])
+        }     
         
     }
+
     const navigateToStock=(e)=>{
         setSearchList([])
         e.target.value=''
-        // setFilterQuery('')
-        
     }
 
     // console.log("USE STATE STOCKS",searchList);
