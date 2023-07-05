@@ -19,6 +19,8 @@ function StockDetails() {
         );
 
     console.log("These are the stocks from the store", stocks);
+
+    
     const correctStock = stocks[Number(id.stockId)]
     console.log("This is the stock with the correct id", correctStock);
     // if(stocks){
@@ -29,6 +31,7 @@ function StockDetails() {
 
     return (
         <>
+        {correctStock && <>
             <h2 className="stock-details-title">Stock Details for {correctStock.company_name}</h2>
             <div className="stock-details-container">
 
@@ -48,6 +51,7 @@ function StockDetails() {
                 <button className="buy-button">Buy Shares</button>
 
             </div>
+        </>}
         </>
     )
 }
