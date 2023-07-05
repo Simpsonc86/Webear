@@ -1,11 +1,16 @@
 .cont{
+    background: cover;
     background-color: blue;
     color: white;
 }
 
 .title{
+
     font-size: 30px;
-    margin-left: 70px;
+
+}
+.title:hover{
+    cursor: pointer;
 }
 
 .text{
@@ -16,7 +21,7 @@
 }
 .bigText{
     width: 40%;
-    font-size: 40px;
+    font-size: 38px;
 }
 
 .join{
@@ -26,4 +31,21 @@
 .fees{
     font-size: 20px;
     opacity: .5;
+}
+
+.loginImage{
+    margin-top: 30px;
+    width: 40%;
+    height: 200px;
+}
+
+.navLogo{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 70px;
+}
+
+.webear-logo:hover{
+    cursor: pointer;
 }

@@ -11,6 +11,18 @@
     gap: 10px;
     width: 70%;
 }
+.signupFirst{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70%;
+}
+.signupLast{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70%;
+}
 .signupUsername{
     display: flex;
     flex-direction: column;
@@ -49,4 +61,10 @@
     background-color: blue;
     border-radius: 20px;
     color: white;
+}
+.signupDOB{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70%;
 }

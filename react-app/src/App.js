@@ -22,37 +22,45 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
+
       {isLoaded && (
         <Switch>
           <Route exact path="/">
+          <Navigation isLoaded={isLoaded} />
             <LandingPage/>
           </Route>
           <Route path="/login" >
             <Login />
           </Route>
           <Route path="/add_to_balance">
+          <Navigation isLoaded={isLoaded} />
             <Balance />
           </Route>
           <Route exact path="/stocks/:stockId">
+          <Navigation isLoaded={isLoaded} />
             <StockDetails />
           </Route>
           <Route path="/stocks">
+          <Navigation isLoaded={isLoaded} />
             <Stocks />
           </Route>
           <Route path="/portfolio">
+          <Navigation isLoaded={isLoaded} />
             <Portfolio />
           </Route>
           <Route path="/watchlist">
+          <Navigation isLoaded={isLoaded} />
             <Watchlists/>
           </Route>
           <Route path="/signup">
             <Signup />
           </Route>
           <Route path="/trade">
+          <Navigation isLoaded={isLoaded} />
             <Transaction />
           </Route>
           <Route path="/trade">
+          <Navigation isLoaded={isLoaded} />
             <Transaction />
           </Route>
         </Switch>
