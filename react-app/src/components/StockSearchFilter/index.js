@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllStocksThunk } from "../../store/stocks";
 import { NavLink } from "react-router-dom";
+import "./StockSearchFilter.css"
 
 
 
@@ -9,15 +10,15 @@ import { NavLink } from "react-router-dom";
 export default function StockSearchFilter() {
     const dispatch = useDispatch()
     const stocks = useSelector((state) => (state.stocks.stocks ? Object.values(state.stocks.stocks) : []));
-    console.log("Type of stocks is: ",typeof stocks);
-    console.log("These are the stocks from the store--->", stocks);
+    // console.log("Type of stocks is: ",typeof stocks);
+    // console.log("These are the stocks from the store--->", stocks);
     const [searchList, setSearchList] = useState(stocks)
     const stockList = [];
     
     stocks.forEach((stock)=>{
         stockList.push(stock)
     })
-    console.log("Search list of stocks ",stockList);
+    // console.log("Search list of stocks ",stockList);
     
     useEffect(() => {
         dispatch(getAllStocksThunk());
@@ -27,16 +28,16 @@ export default function StockSearchFilter() {
         const query = e.target.value;
         // let newList = [...stockList]
         
-        console.log("This is the value of query",query);
+        // console.log("This is the value of query",query);
             const newList = stockList.filter((stock) => stock.company_name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
-        console.log("this is the filtered list", newList);
+        // console.log("this is the filtered list", newList);
         
         if (!query.length){
             setSearchList([]);
         }else setSearchList(newList)
       
     }
-    console.log("USE STATE STOCKS",searchList);
+    // console.log("USE STATE STOCKS",searchList);
     
     return (
         <div className='search-filter'>

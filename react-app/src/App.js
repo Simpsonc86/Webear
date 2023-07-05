@@ -10,6 +10,7 @@ import Portfolio from "./components/Portfolio"
 import Stocks from "./components/Stock"
 import Balance from "./components/Balance";
 import LandingPage from "./components/LandingPage";
+import Transaction from "./components/Transaction";
 
 function App() {
   const dispatch = useDispatch();
@@ -43,6 +44,12 @@ function App() {
           </Route>
           <Route path="/signup">
             <Signup />
+          </Route>
+          <Route path="/trade">
+            <Transaction />
+          </Route>
+          <Route path="/trade">
+            <Transaction />
           </Route>
         </Switch>
       )}
