@@ -42,14 +42,14 @@
   align-items: center;
   text-decoration: none;
   margin-right: 20px;
-  color: black;
+  color:#001b39;
 }
 .nav-links{
   font-size: 18px;
   text-decoration: none;
   margin:0 10px;
   /* margin-top: 10px; */
-  color: black;
+  color:#001b39;
   font-weight: bolder;
 }
 
