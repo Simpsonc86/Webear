@@ -11,6 +11,7 @@ import Stocks from "./components/Stock"
 import Balance from "./components/Balance";
 import LandingPage from "./components/LandingPage";
 import Transaction from "./components/Transaction";
+import StockDetails from "./components/StockDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/add_to_balance">
             <Balance />
+          </Route>
+          <Route exact path="/stocks/:stockId">
+            <StockDetails />
           </Route>
           <Route path="/stocks">
             <Stocks />
