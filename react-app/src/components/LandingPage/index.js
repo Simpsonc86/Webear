@@ -22,10 +22,10 @@ export default function LandingPage({ isLoaded }) {
                 <div className='footer'>
                     <p>Disclaimer: This is not a real financial website with real-time stock prices and purchases!</p>
                     
-                    <NavLink className="group-link" to="/sign-up">Contributor Github Link</NavLink>
-                    <NavLink className="group-link" to="/sign-up">Contributor Github Link</NavLink>
-                    <NavLink className="group-link" to="/sign-up">Contributor Github Link</NavLink>
-                    <NavLink className="group-link" to="/sign-up">Contributor Github Link</NavLink>
+                    <NavLink className="group-link" to="/signup">Contributor Github Link</NavLink>
+                    <NavLink className="group-link" to="/signup">Contributor Github Link</NavLink>
+                    <NavLink className="group-link" to="/signup">Contributor Github Link</NavLink>
+                    <NavLink className="group-link" to="/signup">Contributor Github Link</NavLink>
                 </div>
 
             </div>
