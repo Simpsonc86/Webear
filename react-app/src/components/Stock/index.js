@@ -26,7 +26,7 @@ function Stocks() {
             <div className="all-stock-container">
       
                 {stocks.map((stock, index) => (
-                    <NavLink key={index} className="stock-box" to={`/`}>
+                    <NavLink key={index} className="stock-box" to={`/stocks/${stock.id-1}`}>
                         <div className="stock-title-div">
                             <h2 className="stock-symbol desc">{stock.ticker_symbol}</h2>
                             <h3 className="stock-name desc">{stock.company_name}</h3>
