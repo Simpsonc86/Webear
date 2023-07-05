@@ -72,7 +72,6 @@ const Transaction = () => {
                             <select
                                 name='stock'
                                 onChange={e => {
-                                    console.log(company)
                                     setCompany(stocks[e.target.value])
                                     setShare_price(stocks[e.target.value].base_price)
                                 }}
