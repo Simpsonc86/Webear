@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getWatchlistsThunk } from "../../store/watchlist";
-import {useEffect} from "react"
+import {useEffect, useState} from "react"
+import "./index.css"
 
 function Watchlists() {
 
@@ -8,20 +9,67 @@ function Watchlists() {
     const dispatch = useDispatch();
     // console.log(sessionUser)
 
-    const watchlists = Object.values(
-        useSelector((state) => (state.watchlist.watchlists ? state.watchlist.watchlists : []))
-    );
+    const [watchlistId, setWatchlistId] = useState(1);
+
+    const watchlists = useSelector((state) => (state.watchlist.watchlists ? state.watchlist.watchlists : {}))
+
+    let watchlistNames = []
+
+    for (let w in watchlists) {
+
+        watchlistNames.push({name:watchlists[w].name, id:watchlists[w].id})
+    }
 
 
-    // console.log("finally", watchlists)
+
     useEffect(() => {
         dispatch(getWatchlistsThunk(sessionUser));
-    }, [dispatch, sessionUser]);
+    }, [dispatch, sessionUser, watchlistId]);
 
 
 
     return (
-        <h1>a</h1>
+        <div>
+            <form onSubmit={console.log("")}>
+                <div>
+                    <label>
+                        Watchlist Name
+                    </label>
+                    <select
+                        name='watchlist'
+                        onChange={e => {
+                            setWatchlistId(watchlists[e.target.value].id)
+                            console.log(e.target.value)
+                        }}
+                        value={watchlistId}
+                    >
+                        {
+                            watchlistNames.map((w) =>
+                                <option key={w.id} value={w.id}>{w.name}</option>)
+                        }
+
+                    </select>
+                </div>
+                <div>
+
+                    {
+                        watchlists[watchlistId]?.stocks.map((s) => {
+
+                            return (
+                                <div className="watchlist_entry" key={s.id}>
+                                    <div className="company_name">{s.company_name}</div>
+                                    <div className="ticker">{s.ticker_symbol}</div>
+                                    <div className="price">{s.base_price}</div>
+                                    <div className="change">Todays Change%</div>
+                                </div>
+                            )
+                        })
+
+                    }
+
+                </div>
+            </form>
+        </div>
     )
 }
 

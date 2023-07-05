@@ -1,0 +1,17 @@
+.watchlist_entry {
+    display:flex;
+    gap:3em
+
+}
+
+.company_name {
+    width: 13em;
+}
+
+.ticker {
+    width: 4em;
+}
+
+.price {
+    width:4em;
+}
