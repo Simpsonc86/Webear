@@ -41,10 +41,10 @@ export default function StockSearchFilter() {
     
     return (
         <div className='search-filter'>
-            <input className='search-field' onChange={filterSearch} placeholder='Search for a Stock'></input>
+            <input className='search-field' onChange={filterSearch} placeholder='Search for a Company'></input>
             <div className="search-list-stock">
                 {searchList.map((stock, index) => (
-                    <NavLink  key={index} to={`/`}>{stock.company_name}</NavLink>
+                    <NavLink  className="search"key={index} to={`/`}>{stock.company_name}</NavLink>
                 ))}
             </div>           
         </div>
