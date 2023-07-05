@@ -22,7 +22,7 @@ function Stocks() {
 
     return (
         <>
-            <h1 className="all-stocks-title">All Stocks</h1>
+            <h2 className="all-stocks-title">All Stocks</h2>
             <div className="all-stock-container">
       
                 {stocks.map((stock, index) => (

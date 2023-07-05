@@ -36,7 +36,7 @@ function StockDetails() {
                     <div className="stock-details-title-div">
                         <h2 className="stock-details-symbol desc">{correctStock.ticker_symbol}</h2>
                         <h3 className="stock-details-name desc">{correctStock.company_name}</h3>
-                        <h4 className="stock-details-price desc">Price: {correctStock.base_price} per share</h4>
+                        <h4 className="stock-details-price desc">{correctStock.base_price} per share</h4>
                     </div>
                     <div className="stock-details-info-box">
                         <p className="stock-details-total-shares desc">Total Shares: {correctStock.total_shares}</p>
