@@ -18,6 +18,6 @@
 }
 .search:hover{
     color: white;
-    background-color: blue;
+    background-image: linear-gradient(-36deg, blue 0%, #459FF0 100%);
     border-radius: 2px;
 }
