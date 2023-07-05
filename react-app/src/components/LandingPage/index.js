@@ -8,7 +8,7 @@ export default function LandingPage({ isLoaded }) {
     return (
         <>
             <div className='outer-div-container'>
-                <video className="landing-page-video" src="landingPageVid.mp4" >
+                <video autoPlay muted loop className="landing-page-video" src="landingPageVid.mp4" >
                 </video>
                 <div className='floating-text-box'>
                     <div className='floating-text-title'>Enjoy Tech. Enjoy investing</div>
@@ -19,6 +19,7 @@ export default function LandingPage({ isLoaded }) {
                 
                     <NavLink className="get-started" to="/sign-up">Get Started</NavLink>
                 </div>
+
             </div>
         </>
     )

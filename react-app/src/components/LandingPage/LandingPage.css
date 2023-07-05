@@ -12,6 +12,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-height: fit-content;
+    margin-top:20%;
     /* align-content:center; */
     /* box-sizing: border-box; */
     /* transform: translate(0); */
