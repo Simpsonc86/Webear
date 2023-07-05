@@ -11,7 +11,10 @@ function SignupFormPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [errors, setErrors] = useState([]);
+  const [dob, setDOB] = useState("");
   let history = useHistory();
 
   if (sessionUser) return <Redirect to="/" />;
@@ -39,6 +42,30 @@ function SignupFormPage() {
             <li key={idx}>{error}</li>
           ))}
         </ul>
+        <label class = "signupFirst">
+          First Name
+          <input type="text"
+          class = "signupInput"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          required />
+        </label>
+        <label class = "signupLast">
+          Last Name
+          <input type="text"
+          class = "signupInput"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          required />
+        </label>
+        <label class = "signupDOB">
+          Date of Birth
+          <input type="date"
+          value={dob}
+          onChange={(e) => setDOB(e.target.value)}
+          required
+          />
+        </label>
         <label class="signupEmail">
           Email
           <input

@@ -40,31 +40,28 @@ function ProfileButton({ user }) {
 
   return (
     <>
-    <div className="menu">
+    {user &&<div className="menu">
       <button onClick={openMenu}>
         <i className="fas fa-user-circle" />
       </button>
       <ul className={ulClassName} ref={ulRef}>
-        {user ? (
-          <>
+
+
             <li>{user.username}</li>
             <li>{user.email}</li>
             <li>
               <button onClick={handleLogout}>Log Out</button>
             </li>
-          </>
-        ) : (
-          <>
-          <div className="buttons">
-            <button onClick={() => history.push('/login')}>Login</button>
 
+
+</ul>
+      </div>
+    }
+      {!user && <div className="buttons">
+            <button onClick={() => history.push('/login')}>Login</button>
             <button onClick={() => history.push('/signup')}>Signup</button>
             </div>
-
-          </>
-        )}
-      </ul>
-      </div>
+}
     </>
   );
 }
