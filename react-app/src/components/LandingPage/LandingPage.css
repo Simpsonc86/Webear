@@ -12,6 +12,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-height: fit-content;
+    margin-top:5%;
     /* align-content:center; */
     /* box-sizing: border-box; */
     /* transform: translate(0); */
@@ -59,4 +61,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.footer{
+    display: flex;
+    padding:20px;
+    margin:20px 0;
+    gap:30px;
 }
