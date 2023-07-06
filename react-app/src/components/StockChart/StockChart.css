@@ -1,6 +1,4 @@
-.VictoryContainer {
-    display: flex;
-    /* border: blue 1px solid; */
-    object-fit: contain;
-    max-width: 60%;
+.stock-victory-chart {
+    /* border: red 1px solid; */
+    max-width: 1200px;
 }

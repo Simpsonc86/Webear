@@ -14,6 +14,7 @@ import Transaction from "./components/Transaction";
 import StockDetails from "./components/StockDetails";
 import Dashboard from "./components/Dashboard";
 import StockChart from "./components/StockChart"
+import PortfolioChart from "./components/PortfolioChart";
 
 function App() {
   const dispatch = useDispatch();
@@ -62,9 +63,8 @@ function App() {
             <Transaction />
           </Route>
           <Route path="/dashboard">
-            <Dashboard isLoaded={isLoaded}/>
+            <Dashboard isLoaded={isLoaded} />
           </Route>
-
         </Switch>
       )}
     </>
