@@ -3,12 +3,12 @@
     height:100vh;
     max-width: 100%;
     width:auto;
-    border: 1px solid black;
+    border: 1px solid #b7b7b7;
 }
 .dashboard-watchlist{
     max-width:200px;
     width:100%;
-    padding:0 10px;
+    padding:10px 10px;
     height:50vh;
 }
 .dashboard-home-link,.watchlist-navlink,.portfolio-navlink{
@@ -25,11 +25,11 @@
 
 .dashboard-nav{
     /* display: flex; */
-    background-color: black;
+    background-color: #292F4F;
     max-width: 60px;
     max-height:100vh;
     height: 100%;
-    border: 1px solid black;
+    border: 1px solid #b7b7b7;
 
 }
 
@@ -39,13 +39,13 @@
     /* justify-content: space-between; */
     /* padding:0 10px; */
 
-    width:35%;
-    border-right: 1px solid black;
+    width:20%;
+    border-right: 1px solid #b7b7b7;
 }
 .charts-and-portfolio-div{
     /* margin:0 10px; */
     /* padding:0 10px; */
-    width:65%;
+    width:80%;
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
@@ -53,9 +53,10 @@
     
 }
 .charts-container-div{
-    padding:0 10px;
-    height:50vh;
-    border-bottom: 1px solid black;
+    padding:10px;
+    height:60vh;
+    margin:0;
+    /* border-bottom: 1px solid #292F4F; */
 }
 .dashboard-profile-search{
     display: flex;
@@ -64,8 +65,11 @@
 }
 .dashboard-portfolio{
     padding:10px;
+    height:40vh;
+    border-top:1px groove #b7b7b7 ;
 }
 .dashboard-transactions{
     padding:10px;
-    border-top:1px solid black ;
+    border-top:1px groove #b7b7b7 ;
+    height:40vh;
 }
