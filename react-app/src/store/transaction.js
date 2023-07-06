@@ -34,15 +34,9 @@ export const stockTransactionThunk = (transaction) => async (dispatch) => {
         body: JSON.stringify(transaction),
     })
 
-
-
     if (response.ok) {
 
         const trans = await response.json()
-        console.log(trans)
-
-
-
 
         dispatch(stockTransaction(trans))
     }

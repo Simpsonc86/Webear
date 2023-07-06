@@ -1,5 +1,6 @@
 const GET_ALL_STOCKS = "stocks/GET_ALL_STOCKS"
 
+
 const getAllStocks = (stocks) => ({
     type: GET_ALL_STOCKS,
     stocks

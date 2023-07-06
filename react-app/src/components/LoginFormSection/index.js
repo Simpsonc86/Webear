@@ -10,7 +10,7 @@ function LoginFormSection() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   let history = useHistory();
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to="/dashboard" />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
