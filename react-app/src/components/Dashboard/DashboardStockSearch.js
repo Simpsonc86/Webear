@@ -43,7 +43,7 @@ export default function DashboardStockSearch() {
             <input className='search-field' onChange={filterSearch} onClick={navigateToStock} placeholder='Search for a Company'></input>
             {searchList && <div className="search-list-stock">
                 {searchList.map((stock, index) => (
-                    <NavLink  className="search"key={index} onClick={navigateToStock}to={`/portfolio/stocks/${stock.id-1}`}>{stock.company_name}</NavLink>
+                    <NavLink  className="search"key={index} onClick={navigateToStock}to={`/stocks/${stock.id-1}`}>{stock.company_name}</NavLink>
                 ))}
             </div> }          
         </div>
