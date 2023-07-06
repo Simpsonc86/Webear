@@ -1,0 +1,71 @@
+.dashboard-container-div{
+    display:flex;
+    height:100vh;
+    max-width: 100%;
+    width:auto;
+    border: 1px solid black;
+}
+.dashboard-watchlist{
+    max-width:200px;
+    width:100%;
+    padding:0 10px;
+    height:50vh;
+}
+.dashboard-home-link,.watchlist-navlink,.portfolio-navlink{
+    display:flex;
+    flex-direction: column;
+    max-width: 60px;
+    width:40px;
+    padding:50px 10px;
+    
+    /* height:40px; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.dashboard-nav{
+    /* display: flex; */
+    background-color: black;
+    max-width: 60px;
+    max-height:100vh;
+    height: 100%;
+    border: 1px solid black;
+
+}
+
+.watchlist-container-div{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    /* padding:0 10px; */
+
+    width:35%;
+    border-right: 1px solid black;
+}
+.charts-and-portfolio-div{
+    /* margin:0 10px; */
+    /* padding:0 10px; */
+    width:65%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    /* border: 1px solid black; */
+    
+}
+.charts-container-div{
+    padding:0 10px;
+    height:50vh;
+    border-bottom: 1px solid black;
+}
+.dashboard-profile-search{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dashboard-portfolio{
+    padding:10px;
+}
+.dashboard-transactions{
+    padding:10px;
+    border-top:1px solid black ;
+}
