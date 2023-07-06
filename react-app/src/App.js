@@ -13,6 +13,7 @@ import LandingPage from "./components/LandingPage";
 import Transaction from "./components/Transaction";
 import StockDetails from "./components/StockDetails";
 import Dashboard from "./components/Dashboard";
+import StockChart from "./components/StockChart"
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ function App() {
           </Route>
           <Route exact path="/stocks/:stockId">
             <Navigation isLoaded={isLoaded} />
+            <StockChart />
             <StockDetails />
           </Route>
           <Route path="/stocks">
@@ -63,6 +65,7 @@ function App() {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
+
         </Switch>
       )}
     </>
