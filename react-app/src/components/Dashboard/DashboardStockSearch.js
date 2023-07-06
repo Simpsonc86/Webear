@@ -41,11 +41,11 @@ export default function DashboardStockSearch() {
     return (
         <div className='search-filter'>
             <input className='search-field' onChange={filterSearch} onClick={navigateToStock} placeholder='Search for a Company'></input>
-            <div className="search-list-stock">
+            {searchList && <div className="search-list-stock">
                 {searchList.map((stock, index) => (
                     <NavLink  className="search"key={index} onClick={navigateToStock}to={`/portfolio/stocks/${stock.id-1}`}>{stock.company_name}</NavLink>
                 ))}
-            </div>           
+            </div> }          
         </div>
     )
 }
