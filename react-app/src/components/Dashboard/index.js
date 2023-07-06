@@ -11,7 +11,10 @@ export default function Dashboard() {
 
     return (
         <>
-            <ProfileButton />
+            <div className="dashboard-profile-search">
+                <ProfileButton />
+                <DashboardStockSearch/>
+            </div>
             <div className="dashboard-container-div">
                 <div className="dashboard-nav">
                     <NavLink className="dashboard-home-link" to="/dashboard">
@@ -24,9 +27,18 @@ export default function Dashboard() {
                         <img className="dash-logo" src="/webear-w.png" alt="webear-dash-logo2" />
                     </NavLink>
                 </div>
-                {/* <DashboardNavigation /> */}
-                <Watchlists className="dashboard-watchlist" />
-                <Portfolio />
+                <div className="watchlist-container-div">
+
+                    <Watchlists className="dashboard-watchlist" />
+                </div>
+                <div className="charts-and-portfolio-div">
+                    <h2 className="charts-container-div">Charts comming soon</h2>
+                    <div className="dashboard-portfolio">
+                        <Portfolio/>
+                    </div>
+
+                </div>
+
             </div>
         </>
     )
