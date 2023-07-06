@@ -1,21 +1,57 @@
 .holding {
     display: flex;
     flex-direction: row;
-    gap: 3em;
 }
 
 .ticker {
-    width: 2em;
+    width: 18%;
+    border: 1px solid lightgray;
 }
 
 .company {
-    width: 7em
+    width: 28%;
+    border: 1px solid lightgray;
 }
-
+.quantity{
+    width: 18%;
+    border: 1px solid lightgray;
+}
 .mktValue {
-
+    width: 18%;
+    border: 1px solid lightgray;
 }
 
 .avgPrice {
+    width: 18%;
+    border: 1px solid lightgray;
+}
+.headings{
+    display: flex;
+    border: 1px solid lightgray;
+}
 
+.portGrid{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.headSymbol{
+    width: 18%;
+    border: 1px solid lightgray;
+}
+.headName{
+    width: 28%;
+    border: 1px solid lightgray;
+}
+.headQuantity{
+    width: 18%;
+    border: 1px solid lightgray;
+}
+.headMktValue{
+    width: 18%;
+    border: 1px solid lightgray;
+}
+.headAvgPrice{
+    width: 18%;
+    border: 1px solid lightgray;
 }

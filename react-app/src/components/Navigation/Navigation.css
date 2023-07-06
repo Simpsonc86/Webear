@@ -67,12 +67,7 @@
   padding:0 15px;
 }
 
-.buttons{
-  display: flex;
-  align-items: center;
-  gap: 5px ;
-  padding-bottom: 60px;
-}
+
 .menu{
   display: flex;
   padding-right: 35px;

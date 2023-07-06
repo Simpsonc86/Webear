@@ -1,0 +1,23 @@
+
+.userNavButtons{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+.navLoginButton{
+    border-radius: 20px;
+    width: 100px;
+    height: 22px;
+    background-color: blue;
+    color: white;
+  }
+
+.navSignupButton{
+    color: rgb(70, 126, 211);
+  }
+.navSignupButton:hover{
+    cursor: pointer;
+  }
+.navLoginButton:hover{
+    cursor: pointer;
+  }

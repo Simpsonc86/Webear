@@ -22,7 +22,7 @@ function SignupFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, email, password, firstName, lastName, dob));
       if (data) {
         setErrors(data);
       }
@@ -42,10 +42,10 @@ function SignupFormPage() {
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <label class = "signupFirst">
+        <label className = "signupFirst">
           First Name
           <input type="text"
-          class = "signupInput"
+          className = "signupInput"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           required />
@@ -53,12 +53,12 @@ function SignupFormPage() {
         <label class = "signupLast">
           Last Name
           <input type="text"
-          class = "signupInput"
+          className = "signupInput"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
           required />
         </label>
-        <label class = "signupDOB">
+        <label className = "signupDOB">
           Date of Birth
           <input type="date"
           value={dob}
@@ -66,17 +66,17 @@ function SignupFormPage() {
           required
           />
         </label>
-        <label class="signupEmail">
+        <label className="signupEmail">
           Email
           <input
-          class = "signupInput"
+          className = "signupInput"
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </label>
-        <label class="signupUsername">
+        <label className="signupUsername">
           Username
           <input
           class = "signupInput"
@@ -89,7 +89,7 @@ function SignupFormPage() {
         <label class="signupPassword">
           Password
           <input
-          class = "signupInput"
+          className = "signupInput"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -99,16 +99,16 @@ function SignupFormPage() {
         <label class="signupConfirmPassword">
           Confirm Password
           <input
-          class = "signupInput"
+          className = "signupInput"
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
         </label>
-        <button class = "signupButton" type="submit">Sign Up</button>
+        <button className = "signupButton" type="submit">Sign Up</button>
       </form>
-      <div class="signupBotCont">
+      <div className="signupBotCont">
         <p>Already have an account?</p>
         <button  onClick={() => history.push("/login")}>Login</button>
       </div>

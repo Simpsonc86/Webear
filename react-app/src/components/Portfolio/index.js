@@ -50,6 +50,14 @@ const Portfolio = () => {
     return (
         <div>
 
+                <div className="portGrid">
+                <div className="headings">
+                <h3 className="headSymbol">Symbol</h3>
+                <h3 className="headName">Name</h3>
+                <h3 className="headQuantity">Quantity</h3>
+                <h3 className="headMktValue">Mkt Value</h3>
+                <h3 className="headAvgPrice">Last Price</h3>
+                </div>
             {portfolioList.map((stock) => (
                 <div className="holding">
                     <div className="ticker">{stock.stock.ticker_symbol}</div>
@@ -58,8 +66,8 @@ const Portfolio = () => {
                     <div className="mktValue">{(stock.sharesOwned * stock.stock.base_price).toFixed(2)}</div>
                     <div className="avgPrice">{stock.stock.base_price}</div>
                 </div>
-
             ))}
+            </div>
         </div>
     )
 

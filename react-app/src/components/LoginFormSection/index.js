@@ -22,17 +22,17 @@ function LoginFormSection() {
 
   return (
     <>
-      <h1 class="header">Log in to Webear</h1>
-      <form class="formclass" onSubmit={handleSubmit}>
+      <h1 className="header">Log in to Webear</h1>
+      <form className="formclass" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <label class="email">
-          <p class="formtext">Email</p>
+        <label className="email">
+          <p className="formtext">Email</p>
           <input
-            class="loginInputs"
+            className="loginInputs"
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -41,21 +41,21 @@ function LoginFormSection() {
         </label>
 
         <label class="password">
-          <p class="formtext">Password</p>
+          <p className="formtext">Password</p>
           <input
-            class="loginInputs"
+            className="loginInputs"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </label>
-        <button class="submit" type="submit">
+        <button className="submit" type="submit">
           Log In
         </button>
       </form>
-      <div class="botCont">
-        <p class="signup">Don't have an account yet?</p>
+      <div className="botCont">
+        <p className="signup">Don't have an account yet?</p>
         <button onClick={() => history.push("/signup")}>
           Signup
         </button>

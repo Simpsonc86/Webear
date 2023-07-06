@@ -5,7 +5,7 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import { useHistory } from "react-router-dom";
-
+import './ProfileButton.css';
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
@@ -20,7 +20,7 @@ function ProfileButton({ user }) {
     if (!showMenu) return;
 
     const closeMenu = (e) => {
-      if (!ulRef.current.contains(e.target)) {
+      if (!ulRef.current?.contains(e.target)) {
         setShowMenu(false);
       }
     };
@@ -57,9 +57,9 @@ function ProfileButton({ user }) {
 </ul>
       </div>
     }
-      {!user && <div className="buttons">
-            <button onClick={() => history.push('/login')}>Login</button>
-            <button onClick={() => history.push('/signup')}>Signup</button>
+      {!user && <div className="userNavButtons">
+            <h3 className = "navSignupButton" onClick={() => history.push('/signup')}>SIGN UP</h3>
+            <button className = "navLoginButton" onClick={() => history.push('/login')}>LOG IN</button>
             </div>
 }
     </>
