@@ -1,0 +1,24 @@
+.dasboard-contatiner-div{
+    display:flex;
+}
+.dashboard-watchlist{
+    max-width:200px;
+}
+.dashboard-home-link,.watchlist-navlink,.portfolio-navlink{
+    display:flex;
+    flex-direction: column;
+    max-width: 60px;
+    width:40px;
+    padding:50px 10px;
+    /* height:40px; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.dashboard-nav{
+    background-color: black;
+    max-width: 60px;
+    max-height:100%;
+    height: 100vh;
+
+}

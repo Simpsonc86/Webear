@@ -12,6 +12,7 @@ import Balance from "./components/Balance";
 import LandingPage from "./components/LandingPage";
 import Transaction from "./components/Transaction";
 import StockDetails from "./components/StockDetails";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,42 +27,41 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path="/">
-          <Navigation isLoaded={isLoaded} />
-            <LandingPage/>
+            <Navigation isLoaded={isLoaded} />
+            <LandingPage />
           </Route>
           <Route path="/login" >
             <Login />
           </Route>
           <Route path="/add_to_balance">
-          <Navigation isLoaded={isLoaded} />
+            <Navigation isLoaded={isLoaded} />
             <Balance />
           </Route>
           <Route exact path="/stocks/:stockId">
-          <Navigation isLoaded={isLoaded} />
+            <Navigation isLoaded={isLoaded} />
             <StockDetails />
           </Route>
           <Route path="/stocks">
-          <Navigation isLoaded={isLoaded} />
+            <Navigation isLoaded={isLoaded} />
             <Stocks />
           </Route>
           <Route path="/portfolio">
-          <Navigation isLoaded={isLoaded} />
+            <Navigation isLoaded={isLoaded} />
             <Portfolio />
           </Route>
           <Route path="/watchlist">
-          <Navigation isLoaded={isLoaded} />
-            <Watchlists/>
+            <Navigation isLoaded={isLoaded} />
+            <Watchlists />
           </Route>
           <Route path="/signup">
             <Signup />
           </Route>
           <Route path="/trade">
-          <Navigation isLoaded={isLoaded} />
+            <Navigation isLoaded={isLoaded} />
             <Transaction />
           </Route>
-          <Route path="/trade">
-          <Navigation isLoaded={isLoaded} />
-            <Transaction />
+          <Route path="/dashboard">
+            <Dashboard />
           </Route>
         </Switch>
       )}
