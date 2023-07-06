@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import Watchlist, db
+from app.models import Watchlist, db, watchlists_stocks, Stock
 from app.forms import WatchlistForm
+from app.forms import AddStockToWatchlistForm
 
 watchlist_routes = Blueprint('watchlist', __name__)
 
@@ -40,3 +41,21 @@ def delete_Watchlist(id):
         db.session.delete(watchlist_to_delete)
         db.session.commit()
         return {"message": "successfully deleted"}
+
+@watchlist_routes.route('/add_stock', methods=['POST'])
+def add_stock_to_watchlist():
+    form = AddStockToWatchlistForm()
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+
+    print("Gets to ROUTE")
+    stock_id = form.data["stock_id"]
+    watchlist_id = form.data["watchlist_id"]
+    stock = Stock.query.get(stock_id)
+
+    if form.validate_on_submit():
+        ins = watchlists_stocks.insert().values(stock_id = stock_id, watchlist_id = watchlist_id)
+        db.session.execute(ins)
+        db.session.commit()
+        return {"watchlistId": watchlist_id, "stock": stock.to_dict()}

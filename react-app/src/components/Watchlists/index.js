@@ -4,7 +4,9 @@ import {useEffect, useState} from "react"
 import { addWatchlistThunk } from "../../store/watchlist";
 import { deleteWatchlistThunk } from "../../store/watchlist";
 import "./index.css"
-import StockSearchFilter from "../StockSearchFilter"
+import Search from "../Search"
+import OpenModalButton from "../OpenModalButton";
+import WatchlistModal from "../WatchlistModal";
 
 function Watchlists() {
 
@@ -96,12 +98,18 @@ function Watchlists() {
                     watchlists[watchlistId]?.stocks.map((s) => {
 
                         return (
-                            <div className="watchlist_entry" key={s.id}>
-                                <div className="company_name">{s.company_name}</div>
-                                <div className="ticker">{s.ticker_symbol}</div>
-                                <div className="price">{s.base_price}</div>
-                                <div className="change">Todays Change%</div>
-                            </div>
+                            <OpenModalButton  modalComponent={WatchlistModal} isLink={true}  key={s.id}
+                                buttonText={
+                                    <div className="watchlist_entry">
+                                        <div className="company_name">{s.company_name}</div>
+                                        <div className="ticker">{s.ticker_symbol}</div>
+                                        <div className="price">{s.base_price}</div>
+                                        <div className="change">Todays Change%</div>
+                                    </div>
+                                }
+
+                            >
+                            </OpenModalButton>
                         )
                     })
 
@@ -129,7 +137,10 @@ function Watchlists() {
             <div>
                 <button onClick={handleDelete}>Delete Watchlist</button>
             </div>
-            <StockSearchFilter></StockSearchFilter>
+            <div>
+                <label>Add Stock</label>
+                <Search watchlistId={watchlistId}/>
+            </div>
         </div>
     )
 }
