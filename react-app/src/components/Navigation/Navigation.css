@@ -1,5 +1,19 @@
 .profile-dropdown {
   position: absolute;
+  z-index: 4;
+  border:3px groove #007CFF;
+  border-radius: 10px;
+  background-color: white;
+  margin:0;
+  /* left: 40px; */
+  top:2em;
+  /* opacity: 80%; */
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* z-index: 4; */
+  /* transform:translateX(10); */
 }
 
 .hidden {
@@ -8,7 +22,7 @@
 
 .webear-logo{
   width: 50px;
-  height:30px;
+  height:22px;
   padding: 0 10px;
 }
 .outer-nav-div{
@@ -27,7 +41,7 @@
   align-items:center;
   /* background-color: black ; */
   /* color: aliceblue; */
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
 }
 
 
@@ -61,14 +75,66 @@
   /* padding:0 20px; */
   justify-content: space-evenly;
   width:max-content;
+  height:100%;
   align-items: center;
 }
 .search-filter{
   padding:0 15px;
 }
 
-
+.buttons{
+  display: flex;
+  align-items: center;
+  gap: 5px ;
+  /* padding-bottom: 60px; */
+}
 .menu{
   display: flex;
   padding-right: 35px;
+}
+.profile-username,.profile-email{
+  color:#007CFF;
+  padding: 5px;
+  margin:0 10px;
+  font-weight: bolder;
+}
+.logout-btn,.login-btn{
+  color: white;
+  background-color: #007CFF;
+  border-radius: 5px;
+}
+
+.fas, .fa-user-circle{
+  size: 200%;
+ width:40px;
+ height: 40px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ /* border-radius: 20px; */
+ font-size: 200%;
+}
+
+.login-btn,.signin-btn{
+  width:110px;
+  height:36px;
+  border-radius: 18px;
+  font-weight: bolder;
+  font-size: 18px;
+  border:0px
+}
+
+.signin-btn{
+  background-color: white;
+  color:#007CFF;
+}
+
+.profile-btn{
+  background-image: linear-gradient(-36deg , #007CFF, blue);
+  color: white;
+  /* height: 40px; */
+  /* text-decoration: none; */
+  border-radius: 20px;
+  border:0px;
+  padding:0;
 }

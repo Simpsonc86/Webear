@@ -6,10 +6,13 @@
     border: 1px solid #b7b7b7;
 }
 .dashboard-watchlist{
-    max-width:200px;
-    width:100%;
+    /* max-width:200px; */
+    /* width:100%; */
     padding:10px 10px;
-    height:50vh;
+    max-height: 50vh;
+    height:100%;
+    overflow-y: scroll;
+
 }
 .dashboard-home-link,.watchlist-navlink,.portfolio-navlink{
     display:flex;
@@ -58,18 +61,29 @@
     margin:0;
     /* border-bottom: 1px solid #292F4F; */
 }
-.dashboard-profile-search{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+
 .dashboard-portfolio{
     padding:10px;
-    height:40vh;
+    max-height: 40vh;
+    height:100%;
     border-top:1px groove #b7b7b7 ;
+    overflow-y: scroll;
 }
 .dashboard-transactions{
     padding:10px;
     border-top:1px groove #b7b7b7 ;
-    height:40vh;
+    /* max-height: 40vh; */
+    height:100%;
+    overflow-y: scroll;
+
+}
+
+.dashboard-profile-search-div{
+    height:40px;
+    padding:0px 40px;
+    margin:10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ 
 }

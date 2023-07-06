@@ -6,7 +6,7 @@ export default function LoginInfoSection(){
     return(
         <div class = "cont">
             <div className="navLogo">
-            <img onClick={()=> history.push('/')} className="webear-logo"src="/webearLogo.png" alt="webear-logo" />
+            <img onClick={()=> history.push('/')} className="webear-logo"src="/webear-w.png" alt="webear-logo" />
             <h3 onClick={()=> history.push('/')} class = "title">Webear</h3>
             </div>
             <div className="text">
