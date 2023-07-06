@@ -41,7 +41,7 @@ const Portfolio = () => {
     }
 
     let portfolioList = Object.values(portfolio)
-    console.log(portfolioList)
+
 
 
     useEffect(() => {
