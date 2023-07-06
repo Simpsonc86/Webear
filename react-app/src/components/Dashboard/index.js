@@ -4,7 +4,7 @@ import DashboardStockSearch from "./DashboardStockSearch";
 import "./Dashboard.css"
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import ProfileButton from "../Navigation/ProfileButton";
-
+import Transaction from "../Transaction"
 
 export default function Dashboard() {
 
@@ -13,7 +13,7 @@ export default function Dashboard() {
         <>
             <div className="dashboard-profile-search">
                 <ProfileButton />
-                <DashboardStockSearch/>
+                <DashboardStockSearch />
             </div>
             <div className="dashboard-container-div">
                 <div className="dashboard-nav">
@@ -28,13 +28,17 @@ export default function Dashboard() {
                     </NavLink>
                 </div>
                 <div className="watchlist-container-div">
-
-                    <Watchlists className="dashboard-watchlist" />
+                    <div className="dashboard-watchlist" >
+                        <Watchlists />
+                    </div>
+                    <div className="dashboard-transactions">
+                        <Transaction />
+                    </div>
                 </div>
                 <div className="charts-and-portfolio-div">
-                    <h2 className="charts-container-div">Charts comming soon</h2>
+                    <h2 className="charts-container-div">Charts comming soon!</h2>
                     <div className="dashboard-portfolio">
-                        <Portfolio/>
+                        <Portfolio />
                     </div>
 
                 </div>

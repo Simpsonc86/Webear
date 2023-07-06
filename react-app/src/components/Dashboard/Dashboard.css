@@ -7,7 +7,9 @@
 }
 .dashboard-watchlist{
     max-width:200px;
-    width:225%;
+    width:100%;
+    padding:0 10px;
+    height:50vh;
 }
 .dashboard-home-link,.watchlist-navlink,.portfolio-navlink{
     display:flex;
@@ -32,7 +34,11 @@
 }
 
 .watchlist-container-div{
-    padding:0 10px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    /* padding:0 10px; */
+
     width:35%;
     border-right: 1px solid black;
 }
@@ -58,4 +64,8 @@
 }
 .dashboard-portfolio{
     padding:10px;
+}
+.dashboard-transactions{
+    padding:10px;
+    border-top:1px solid black ;
 }
