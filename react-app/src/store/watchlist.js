@@ -43,7 +43,7 @@ export const deleteStockFromWatchlistThunk = (stockId, watchlistId) => async (di
         const res = await response.json()
 
 
-        dispatch(deleteStockFromWatchlist(watchlistId))
+        dispatch(deleteStockFromWatchlist(res))
     }
 }
 
@@ -123,7 +123,11 @@ export default function reducer(state = { watchlists: {}, watchlist: {} }, actio
 
             newState.watchlists[action.watchlist.id] = action.watchlist
             return newState;
+        case DELETE_STOCK_FROM_WATCHLIST:
+            newState = { watchlists: { ...state.watchlists }, watchlist: { ...action.watchlist } }
 
+            newState.watchlists[action.watchlist.id] = action.watchlist
+            return newState;
         case ADD_STOCK_TO_WATCHLIST:
             newState = { watchlists: { ...state.watchlists }, watchlist: { ...action.watchlist } }
             newState.watchlists[action.watchlistId].stocks.push(action.stock)

@@ -1,4 +1,21 @@
-.watchlistModalContainerBg {
-    background-color: rgba(0,0,0,0);
+.deleteConfirm {
+    display: flex;
+    flex-direction: column;
+    border: solid black;
+    border-radius: .4em;
+    width: 12em;
+}
 
+.noDelete {
+
+    background-color: grey;
+}
+
+.yesDelete {
+    background-color: #FF5A5F;
+    margin-bottom: .5em;
+}
+
+.deleteConfirmBg {
+    background-color: rgba(0, 0, 0, 0);
 }
