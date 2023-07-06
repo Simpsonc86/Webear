@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import ProfileButton from "../Navigation/ProfileButton";
 import Transaction from "../Transaction"
 import { useSelector } from "react-redux";
+import PortfolioChart from "../PortfolioChart";
 
 
 export const DashboardNavBar = () => {
@@ -49,7 +50,7 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className="charts-and-portfolio-div">
-                    <h2 className="charts-container-div">Charts comming soon!</h2>
+                    <h2 className="charts-container-div"><PortfolioChart /></h2>
                     <div className="dashboard-portfolio">
                         <h3>Portfolio</h3>
                         <Portfolio />
