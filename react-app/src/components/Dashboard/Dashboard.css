@@ -6,10 +6,13 @@
     border: 1px solid #b7b7b7;
 }
 .dashboard-watchlist{
-    max-width:200px;
-    width:100%;
+    /* max-width:200px; */
+    /* width:100%; */
     padding:10px 10px;
-    height:50vh;
+    max-height: 50vh;
+    height:100%;
+    overflow-y: scroll;
+
 }
 .dashboard-home-link,.watchlist-navlink,.portfolio-navlink{
     display:flex;
@@ -65,11 +68,21 @@
 }
 .dashboard-portfolio{
     padding:10px;
-    height:40vh;
+    max-height: 40vh;
+    height:100%;
     border-top:1px groove #b7b7b7 ;
+    overflow-y: scroll;
 }
 .dashboard-transactions{
     padding:10px;
     border-top:1px groove #b7b7b7 ;
-    height:40vh;
+    /* max-height: 40vh; */
+    height:100%;
+    overflow-y: scroll;
+
 }
+
+/* .dashboard-portfolio-component{
+    height:40vh;
+ 
+} */
