@@ -10,7 +10,8 @@ function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
-  let history = useHistory();
+  const history = useHistory();
+
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -19,11 +20,11 @@ function ProfileButton({ user }) {
   useEffect(() => {
     if (!showMenu) return;
 
-    const closeMenu = (e) => {
-      if (!ulRef.current.contains(e.target)) {
-        setShowMenu(false);
-      }
-    };
+    // const closeMenu = (e) => {
+    //   if (!ulRef.current.contains(e.target)) {
+    //     setShowMenu(false);
+    //   }
+    // };
 
     document.addEventListener("click", closeMenu);
 
@@ -33,6 +34,7 @@ function ProfileButton({ user }) {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
+    history.push("/")
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -40,30 +42,42 @@ function ProfileButton({ user }) {
 
   return (
     <>
-    {user &&<div className="menu">
+        {user ? (
+          <>
       <button onClick={openMenu}>
         <i className="fas fa-user-circle" />
       </button>
       <ul className={ulClassName} ref={ulRef}>
+            <p>Username: {user.username}</p>
+            <p>Email:{user.email}</p>
+            <p>
+              <button className="logout-btn" onClick={handleLogout}>Log Out</button>
+            </p>
+          </ul>
+          </>
+        ) : (
+          <>
+            {/* <OpenModalButton
+              buttonText="Log In"
+              onItemClick={closeMenu}
+              modalComponent={<LoginFormModal />}
+            />
 
+            <OpenModalButton
+              buttonText="Sign Up"
+              onItemClick={closeMenu}
+              modalComponent={<SignupFormModal />}
+            /> */}
 
-            <li>{user.username}</li>
-            <li>{user.email}</li>
-            <li>
-              <button onClick={handleLogout}>Log Out</button>
-            </li>
-
-
-</ul>
-      </div>
-    }
-      {!user && <div className="buttons">
-            <button onClick={() => history.push('/login')}>Login</button>
-            <button onClick={() => history.push('/signup')}>Signup</button>
+            <div className="buttons">
+              <button className="login-btn" onClick={() => history.push('/login')}>Login</button>
+              <button className="signin-btn" onClick={() => history.push('/signup')}>Signup</button>
             </div>
-}
+          </>
+        )}
     </>
   );
 }
 
 export default ProfileButton;
+
