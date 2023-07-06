@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { getAllStocksThunk } from "../../store/stocks";
-import { useParams, NavLink } from "react-router-dom";
+import { useParams, NavLink,useHistory } from "react-router-dom";
 import "./StockDetails.css"
 import { useEffect } from "react";
 import StockChart from "../StockChart"
@@ -9,6 +9,7 @@ function StockDetails() {
 
     const dispatch = useDispatch()
     const id = useParams()
+    const history = useHistory()
     // console.log("Id from params: ",id.stockId);
 
     useEffect(() => {
@@ -50,7 +51,7 @@ function StockDetails() {
 
                     </NavLink>
 
-                    <button className="buy-button">Buy Shares</button>
+                    <button className="buy-button" onClick={() => history.push('/login')}>Buy Shares</button>
 
                 </div>
             </>}
