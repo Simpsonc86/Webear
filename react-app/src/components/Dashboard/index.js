@@ -2,7 +2,7 @@ import Watchlists from "../Watchlists";
 import Portfolio from "../Portfolio";
 import DashboardStockSearch from "./DashboardStockSearch";
 import "./Dashboard.css"
-import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import { NavLink } from "react-router-dom";
 import ProfileButton from "../Navigation/ProfileButton";
 import Transaction from "../Transaction"
 
