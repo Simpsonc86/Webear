@@ -120,6 +120,7 @@
   border-radius: 18px;
   font-weight: bolder;
   font-size: 18px;
+  border:0px
 }
 
 .signin-btn{
@@ -132,7 +133,4 @@
   color: white;
   text-decoration: none;
   border-radius: 20px;
-}
-i{
- 
 }
