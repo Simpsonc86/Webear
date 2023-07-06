@@ -12,6 +12,7 @@ import Balance from "./components/Balance";
 import LandingPage from "./components/LandingPage";
 import Transaction from "./components/Transaction";
 import StockDetails from "./components/StockDetails";
+import StockChart from "./components/StockChart"
 
 function App() {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path="/">
-            <LandingPage/>
+            <LandingPage />
           </Route>
           <Route path="/login" >
             <Login />
@@ -35,6 +36,7 @@ function App() {
             <Balance />
           </Route>
           <Route exact path="/stocks/:stockId">
+            <StockChart />
             <StockDetails />
           </Route>
           <Route path="/stocks">
@@ -44,7 +46,7 @@ function App() {
             <Portfolio />
           </Route>
           <Route path="/watchlist">
-            <Watchlists/>
+            <Watchlists />
           </Route>
           <Route path="/signup">
             <Signup />
@@ -52,9 +54,7 @@ function App() {
           <Route path="/trade">
             <Transaction />
           </Route>
-          <Route path="/trade">
-            <Transaction />
-          </Route>
+
         </Switch>
       )}
     </>
