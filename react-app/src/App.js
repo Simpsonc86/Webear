@@ -40,7 +40,6 @@ function App() {
           </Route>
           <Route exact path="/stocks/:stockId">
             <Navigation isLoaded={isLoaded} />
-            <StockChart />
             <StockDetails />
           </Route>
           <Route path="/stocks">

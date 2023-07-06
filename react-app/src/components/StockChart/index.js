@@ -60,10 +60,13 @@ function StockChart() {
 
     return (
         <>
-            <div className="company-name">{companyName}</div>
             <VictoryChart
                 domainPadding={{ x: 25 }}
-                scale={{ x: "time" }}>
+                scale={{ x: "time" }}
+                width={1500}
+                height={400}
+            >
+
                 <VictoryAxis
                     label="Date"
                     style={{
@@ -77,14 +80,14 @@ function StockChart() {
                     style={{
                         axisLabel: { fontSize: 10, padding: 30 },
                         tickLabels: { fontSize: 10, padding: 5 },
-                        grid: { stroke: "grey", size: 1 }
+                        grid: { stroke: "grey", size: 1 },
                     }} />
                 <VictoryCandlestick
                     candleRatio={0.7}
                     candleColors={{ positive: "#449e48", negative: "#cc2f26" }}
                     data={generatedStockData}
                 />
-            </VictoryChart>
+            </VictoryChart >
         </>
     )
 
