@@ -90,7 +90,7 @@ export const addToBalanceThunk = (amount) => async (dispatch) => {
 	}
 }
 
-export const signUp = (username, email, password) => async (dispatch) => {
+export const signUp = (username, email, password, firstName, lastName, dob) => async (dispatch) => {
 	const response = await fetch("/api/auth/signup", {
 		method: "POST",
 		headers: {
@@ -100,6 +100,9 @@ export const signUp = (username, email, password) => async (dispatch) => {
 			username,
 			email,
 			password,
+			firstName,
+			lastName,
+			dob,
 			balance:0
 		}),
 	});
