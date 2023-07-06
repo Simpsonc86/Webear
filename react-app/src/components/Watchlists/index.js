@@ -4,6 +4,7 @@ import {useEffect, useState} from "react"
 import { addWatchlistThunk } from "../../store/watchlist";
 import { deleteWatchlistThunk } from "../../store/watchlist";
 import "./index.css"
+import StockSearchFilter from "../StockSearchFilter"
 
 function Watchlists() {
 
@@ -64,7 +65,7 @@ function Watchlists() {
     }
 
     return (
-        <div>
+        <div className="watchlistContainer">
             <form onSubmit={handleNewWatchlist}>
                 <div>
                     <label>
@@ -128,6 +129,7 @@ function Watchlists() {
             <div>
                 <button onClick={handleDelete}>Delete Watchlist</button>
             </div>
+            <StockSearchFilter></StockSearchFilter>
         </div>
     )
 }

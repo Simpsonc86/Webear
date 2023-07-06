@@ -15,3 +15,9 @@
 .price {
     width:4em;
 }
+
+.watchlistContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 4em
+}

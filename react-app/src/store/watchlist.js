@@ -1,6 +1,13 @@
 const GET_WATCHLISTS = "watchlist/GET_WATCHLISTS"
 const ADD_WATCHLIST = 'watchlist/ADD_WATCHLIST'
 const DELETE_WATCHLIST = 'watchlist/DELETE_WATCHLIST'
+const ADD_STOCK_TO_WATCHLIST = 'watchlist/ADD_STOCK_TO_WATCHLIST'
+
+const addStockToWatchlist = (stock) => ({
+    type: ADD_STOCK_TO_WATCHLIST,
+    stock
+})
+
 
 const deleteWatchlist = (watchlistId) => ({
     type: DELETE_WATCHLIST,
@@ -17,6 +24,22 @@ const getWatchlists = (watchlists) => ({
     type: GET_WATCHLISTS,
     watchlists
 })
+
+export const addStockToWatchlistThunk = (stockId) => async (dispatch)=>{
+    const response = await fetch("/api/watchlist/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(stockId),
+    })
+
+    if (response.ok) {
+
+        const stock = await response.json()
+
+
+        dispatch(addStockToWatchlist(stock))
+    }
+}
 
 export const deleteWatchlistThunk = (watchlistId) => async (dispatch) => {
 

@@ -22,6 +22,7 @@ const Balance = () => {
         e.preventDefault();
         await dispatch(addToBalanceThunk(amtToAdd))
         setBalance(balance + Number(amtToAdd))
+        setAmtToAdd(0)
         // await dispatch(authenticate(sessionUser))
 
         // await setBalance(sessionUser.balance)
