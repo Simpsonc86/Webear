@@ -63,7 +63,7 @@ function App() {
             <Transaction />
           </Route>
           <Route path="/dashboard">
-            <Dashboard />
+            <Dashboard isLoaded={isLoaded}/>
           </Route>
 
         </Switch>

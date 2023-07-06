@@ -61,11 +61,7 @@
     margin:0;
     /* border-bottom: 1px solid #292F4F; */
 }
-.dashboard-profile-search{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+
 .dashboard-portfolio{
     padding:10px;
     max-height: 40vh;
@@ -82,7 +78,11 @@
 
 }
 
-/* .dashboard-portfolio-component{
-    height:40vh;
+.dashboard-profile-search-div{
+    height:45px;
+    padding:10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
  
-} */
+}
