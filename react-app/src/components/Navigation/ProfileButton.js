@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/session";
-import OpenModalButton from "../OpenModalButton";
-import LoginFormModal from "../LoginFormModal";
-import SignupFormModal from "../SignupFormModal";
+// import OpenModalButton from "../OpenModalButton";
+// import LoginFormModal from "../LoginFormModal";
+// import SignupFormModal from "../SignupFormModal";
 import { useHistory } from "react-router-dom";
 
 function ProfileButton({ user }) {
@@ -42,22 +42,22 @@ function ProfileButton({ user }) {
 
   return (
     <>
-        {user ? (
-          <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
-      </button>
-      <ul className={ulClassName} ref={ulRef}>
-            <p>Username: {user.username}</p>
-            <p>Email:{user.email}</p>
-            <p>
-              <button className="logout-btn" onClick={handleLogout}>Log Out</button>
-            </p>
+      {user ? (
+        <>
+          <button className="profile-btn"onClick={openMenu}>
+            <i className="fas fa-user-circle" />
+          </button>
+          <ul className={ulClassName} ref={ulRef}>
+            <p className="profile-username">Username: {user.username}</p>
+            <p className="profile-email">Email: {user.email}</p>
+
+            <button className="logout-btn" onClick={handleLogout}>Log Out</button>
+
           </ul>
-          </>
-        ) : (
-          <>
-            {/* <OpenModalButton
+        </>
+      ) : (
+        <>
+          {/* <OpenModalButton
               buttonText="Log In"
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
@@ -69,12 +69,12 @@ function ProfileButton({ user }) {
               modalComponent={<SignupFormModal />}
             /> */}
 
-            <div className="buttons">
-              <button className="login-btn" onClick={() => history.push('/login')}>Login</button>
-              <button className="signin-btn" onClick={() => history.push('/signup')}>Signup</button>
-            </div>
-          </>
-        )}
+          <div className="buttons">
+            <button className="signin-btn" onClick={() => history.push('/signup')}>SIGN UP</button>
+            <button className="login-btn" onClick={() => history.push('/login')}>LOG IN</button>
+          </div>
+        </>
+      )}
     </>
   );
 }
