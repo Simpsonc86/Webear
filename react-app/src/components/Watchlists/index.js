@@ -69,7 +69,7 @@ function Watchlists() {
     return (
         <div className="watchlistContainer">
             <form onSubmit={handleNewWatchlist}>
-                <div>
+                <div className="watchlistSelect">
                     <label>
                         Watchlist
                     </label>
@@ -116,14 +116,14 @@ function Watchlists() {
                 }
 
             </div>
-            <div>
+            <div className="watchlistAddStock">
                 <label>Add Stock</label>
                 <Search watchlistId={watchlistId} />
-            </div>
+                </div>
             <div>
-                <div>
+                <div className="watchlistAddList">
                     <form onSubmit={handleNewWatchlist}>
-                        <label>Add New Watchlist</label>
+                        <label><div>Add New Watchlist</div></label>
                         <input
                             type="watchlist_name"
                             placeholder="Watchlist name"
@@ -133,13 +133,13 @@ function Watchlists() {
                             }}
                         />
 
-                        <button type="submit">Add Watchlist</button>
+                        <button className = "watchlistSubmit" type="submit">Add Watchlist</button>
                     </form>
 
                 </div>
             </div>
             <div>
-                <button onClick={handleDelete}>Delete Watchlist</button>
+                <button className = "deleteWatchlist" onClick={handleDelete}>Delete Watchlist</button>
             </div>
 
         </div>

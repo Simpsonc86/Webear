@@ -1,20 +1,24 @@
 .watchlist_entry {
     display:flex;
-    gap:3em
-
+    gap:3em;
+    border: 1px solid lightgray;
+    width: 60%;
 }
 
 .watchlist_entryBg {
         background-color: rgba(0, 0, 0, 0.0);
 
+
 }
 
 .company_name {
     width: 13em;
+    padding-left: 2em;
 }
 
 .ticker {
     width: 4em;
+    padding-left: 2em;
 }
 
 .price {
@@ -24,5 +28,35 @@
 .watchlistContainer {
     display: flex;
     flex-direction: column;
-    gap: 2em
+    gap: 2em;
+    margin-left: 3em;
+}
+
+.watchlistSelect{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    gap: 1em;
+    margin-left: .3em;
+}
+
+.watchlistAddStock{
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    width: 30%;
+}
+
+.watchlistSubmit:hover{
+    cursor: pointer;
+}
+
+.deleteWatchlist{
+    cursor: pointer;
+}
+select:hover{
+    cursor: pointer;
+}
+#selectWatch{
+    width: 15em;
 }
