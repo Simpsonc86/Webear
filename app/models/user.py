@@ -1,6 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from .transactions import Transaction
 
 
 class User(db.Model, UserMixin):
@@ -26,7 +27,12 @@ class User(db.Model, UserMixin):
     def password(self, password):
         self.hashed_password = generate_password_hash(password)
 
+    def portfolio(self):
+        return Transaction.query.filter_by(user_id = self.id).all()
+
+
     def check_password(self, password):
+        print("!!!!!!", self.portfolio())
         return check_password_hash(self.password, password)
 
     def to_dict(self):
@@ -34,5 +40,6 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'balance': self.balance
+            'balance': self.balance,
+            # 'portfolio': self.portfolio()
         }

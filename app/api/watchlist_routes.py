@@ -4,6 +4,7 @@ from app.models import Watchlist, db, watchlists_stocks, Stock
 from app.forms import WatchlistForm
 from app.forms import AddStockToWatchlistForm
 from sqlalchemy import delete, and_
+from .auth_routes import validation_errors_to_error_messages
 
 watchlist_routes = Blueprint('watchlist', __name__)
 
@@ -32,7 +33,10 @@ def add_Watchlist():
         db.session.commit()
 
         return watchlist.to_dict()
-    return {'errors': ['Unauthorized']}, 401
+
+    # print({'errors': validation_errors_to_error_messages(form.errors)}, 401)
+
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @watchlist_routes.route('/<int:watchlist_id>/<int:stock_id>', methods=['DELETE'])
 def delete_stock_from_watchlist(watchlist_id, stock_id):
@@ -58,12 +62,17 @@ def delete_Watchlist(id):
 
 @watchlist_routes.route('/add_stock', methods=['POST'])
 def add_stock_to_watchlist():
+
+    body = request.get_json()
+    if not body['watchlist_id']:
+        print("HEKRLEKJRWELKRJELK")
+        return {'error': 'no watchlist'}, 401
     form = AddStockToWatchlistForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
 
 
-    print("Gets to ROUTE")
+
     stock_id = form.data["stock_id"]
     watchlist_id = form.data["watchlist_id"]
     stock = Stock.query.get(stock_id)
@@ -73,3 +82,5 @@ def add_stock_to_watchlist():
         db.session.execute(ins)
         db.session.commit()
         return {"watchlistId": watchlist_id, "stock": stock.to_dict()}
+
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
