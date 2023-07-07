@@ -1,0 +1,24 @@
+.transType{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 3em;
+}
+.transStock{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 3em;
+}
+.transShares{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 3em;
+}
+.transAmount{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 3em;
+}
