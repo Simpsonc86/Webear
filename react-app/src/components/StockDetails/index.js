@@ -37,7 +37,7 @@ function StockDetails() {
                 <h2 className="stock-details-title">Stock Details for {correctStock.company_name}</h2>
                 <div className="stock-details-container">
                     <StockChart />
-                    <NavLink className="stock-details-box" to={`/`}>
+                    <div className="stock-details-box">
                         <div className="stock-details-title-div">
                             <h2 className="stock-details-symbol desc">{correctStock.ticker_symbol}</h2>
                             <h3 className="stock-details-name desc">{correctStock.company_name}</h3>
@@ -49,7 +49,7 @@ function StockDetails() {
 
                         </div>
 
-                    </NavLink>
+                    </div>
 
                     <button className="buy-button" onClick={() => history.push('/login')}>Buy Shares</button>
 

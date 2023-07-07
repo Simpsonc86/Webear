@@ -74,5 +74,6 @@
 .buy-button:hover{
     box-shadow: 0 0 5em 1em green;
     border: 3px solid white;
+    cursor:pointer;
     
 }
