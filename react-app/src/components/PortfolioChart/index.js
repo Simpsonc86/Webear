@@ -111,7 +111,7 @@ function PortfolioChart() {
                     <option value="30" selected>30 Days</option>
                     <option value="90">90 Days</option>
                 </select>
-                {sessionUser && <h3>Total Market Value of {sessionUser.username}'s Stock Portfolio</h3>}
+                {sessionUser && <h3>Total Market Value of {sessionUser.username}'s Stock Portfolio: ${portfolioValue}</h3>}
             </div>
             <div className="portfolio-victory-chart">
                 <VictoryChart
