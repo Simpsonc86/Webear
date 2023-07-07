@@ -10,42 +10,47 @@ export default function StockSearchFilter() {
     // console.log("Type of stocks is: ",typeof stocks);
     // console.log("These are the stocks from the store--->", stocks);
     const [searchList, setSearchList] = useState([])
-    
+
     useEffect(() => {
         dispatch(getAllStocksThunk());
     }, [dispatch,]);
-    
+
     const filterSearch = (e) => {
         e.preventDefault()
         const query = e.target.value
-               
+
         // console.log("This is the value of query",query);
-            const newList = stocks.filter((stock) => stock.company_name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+        const newList = stocks.filter((stock) => stock.company_name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
         // console.log("this is the filtered list", newList);
 
-        if (!query.length){
+        if (!query.length) {
             setSearchList([]);
-        }else {
+        } else {
             setSearchList(newList)
-        }     
-        
+        }
+
     }
 
-    const navigateToStock=(e)=>{
+    const navigateToStock = (e) => {
         setSearchList([])
-        e.target.value=''
+        e.target.value = ''
     }
 
     // console.log("USE STATE STOCKS",searchList);
-    
+
     return (
         <div className='search-filter'>
-            <input className='search-field' onChange={filterSearch} onClick={navigateToStock} placeholder='Search for a Company'></input>
+            <div className="search-input-div">
+
+                <i class="fas fa-search"></i>
+                <input className='search-field' onChange={filterSearch} onClick={navigateToStock} placeholder='Search for a Company'></input>
+            </div>
+
             <div className="search-list-stock">
                 {searchList.map((stock, index) => (
-                    <NavLink  className="search"key={index} onClick={navigateToStock}to={`/stocks/${stock.id-1}`}>{stock.company_name}</NavLink>
+                    <NavLink className="search-selection" key={index} onClick={navigateToStock} to={`/stocks/${stock.id - 1}`}>{stock.company_name}</NavLink>
                 ))}
-            </div>           
+            </div>
         </div>
     )
 }
