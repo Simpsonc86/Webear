@@ -94,11 +94,11 @@ function Watchlists() {
             </form>
             <div >
 
-                {
+                {watchlists &&
                     watchlists[watchlistId]?.stocks.map((s) => {
 
                         return (
-                            <OpenModalButton  modalComponent={WatchlistModal()} isLink={true}  key={s.id}
+                            <OpenModalButton watchlistId={watchlistId} stockId={s.id} modalComponent={<WatchlistModal watchlistId={watchlistId} stockId={s.id}/> } isLink={true}  key={s.id}
                                 buttonText={
                                     <div className="watchlist_entry">
                                         <div className="company_name">{s.company_name}</div>
