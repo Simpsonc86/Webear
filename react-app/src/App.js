@@ -13,8 +13,7 @@ import LandingPage from "./components/LandingPage";
 import Transaction from "./components/Transaction";
 import StockDetails from "./components/StockDetails";
 import Dashboard from "./components/Dashboard";
-import StockChart from "./components/StockChart"
-import PortfolioChart from "./components/PortfolioChart";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,36 +33,45 @@ function App() {
           </Route>
           <Route path="/login" >
             <Login />
+            <Footer/>
           </Route>
           <Route path="/add_to_balance">
             <Navigation isLoaded={isLoaded} />
             <Balance />
+            <Footer/>
           </Route>
           <Route exact path="/stocks/:stockId">
             <Navigation isLoaded={isLoaded} />
             <StockDetails />
+            <Footer/>
           </Route>
           <Route path="/stocks">
             <Navigation isLoaded={isLoaded} />
             <Stocks />
+            <Footer/>
           </Route>
           <Route path="/portfolio">
             <Navigation isLoaded={isLoaded} />
             <Portfolio />
+            <Footer/>
           </Route>
           <Route path="/watchlist">
             <Navigation isLoaded={isLoaded} />
             <Watchlists />
+            <Footer/>
           </Route>
           <Route path="/signup">
             <Signup />
+            <Footer/>
           </Route>
           <Route path="/trade">
             <Navigation isLoaded={isLoaded} />
             <Transaction />
+            <Footer/>
           </Route>
           <Route path="/dashboard">
             <Dashboard isLoaded={isLoaded} />
+            <Footer/>
           </Route>
         </Switch>
       )}

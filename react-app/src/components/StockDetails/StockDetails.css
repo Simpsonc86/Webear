@@ -69,4 +69,11 @@
     font-size: 22px;
     font-weight: bolder;
     text-shadow: 1px solid #001b39;
+    border:0px;
+}
+.buy-button:hover{
+    box-shadow: 0 0 5em 1em green;
+    border: 3px solid white;
+    cursor:pointer;
+    
 }
