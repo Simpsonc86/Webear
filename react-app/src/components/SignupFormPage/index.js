@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
 import "./SignupForm.css";
+import validator from 'validator';
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -15,23 +16,32 @@ function SignupFormPage() {
   const [lastName, setLastName] = useState("");
   const [errors, setErrors] = useState([]);
   const [dob, setDOB] = useState("");
+
   let history = useHistory();
 
   if (sessionUser) return <Redirect to="/dashboard" />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
-      const data = await dispatch(signUp(username, email, password, firstName, lastName, dob));
-      if (data) {
-        setErrors(data);
-      }
-    } else {
-      setErrors([
-        "Confirm Password field must be the same as the Password field",
-      ]);
+    let errorArr = [];
+    if (password !== confirmPassword) {
+
+      errorArr.push("Confirm Password field must be the same as the Password field");
     }
-  };
+    //TODO put validation
+    if(!validator.isEmail(email)){
+      errorArr.push("Must enter valid email");
+    }
+    if(dob.substring(0, 5).substring(0, 4)>'2005' || dob.substring(0,5).substring(0, 4) === '2005' && dob.substring(5, 7) > '07'){
+      errorArr.push("Must be 18 or older")
+    }
+    if(!errorArr.length){
+      await dispatch(signUp(username, email, password, firstName, lastName, dob));
+    }
+    else{
+      setErrors(errorArr)
+    }
+   };
 
   return (
     <>
