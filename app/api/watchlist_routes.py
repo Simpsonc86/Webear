@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 from app.models import Watchlist, db, watchlists_stocks, Stock
 from app.forms import WatchlistForm
 from app.forms import AddStockToWatchlistForm
+from sqlalchemy import delete, and_
 
 watchlist_routes = Blueprint('watchlist', __name__)
 
@@ -37,11 +38,12 @@ def add_Watchlist():
 def delete_stock_from_watchlist(watchlist_id, stock_id):
     watchlist_to_delete = Watchlist.query.get(watchlist_id)
     stock_to_delete = Stock.query.get(stock_id)
-    if stock_to_delete & watchlist_to_delete:
-        stock = watchlists_stocks.delete().where((watchlists_stocks.c.watchlist_id > 2) & (watchlists_stocks.c.stock_id > 2))
+    if stock_to_delete and watchlist_to_delete:
+        delete_stock = delete(watchlists_stocks).where(and_(watchlists_stocks.c.watchlist_id == watchlist_id, watchlists_stocks.c.stock_id ==stock_id))
+        db.session.execute(delete_stock)
         db.session.commit()
         watchlist = Watchlist.query.get(watchlist_id)
-        return {watchlist.to_dict()}
+        return watchlist.to_dict()
 
 
 
