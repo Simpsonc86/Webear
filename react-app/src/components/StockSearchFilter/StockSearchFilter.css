@@ -11,13 +11,27 @@
     /* color:#001b39; */
 }
 
-.search{
+.search-selection{
     color:#001b39;
     text-decoration:none;
     padding:5px;
 }
-.search:hover{
+.search-selection:hover{
     color: white;
     background-image: linear-gradient(-36deg, blue 0%, #459FF0 100%);
     border-radius: 2px;
+}
+.search-field{
+    border-radius: 5px;
+    height:30px;
+}
+.search-input-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+
+}
+.fa-search{
+    color:#001b39;
 }
