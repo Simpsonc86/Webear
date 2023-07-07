@@ -100,20 +100,22 @@ function PortfolioChart() {
     else daysToLookBack = 30
     let basePrice = portfolioValue
     //90 is about the max you should go (1 quarter), beyond that the graph starts to look a bit odd
-    let generatedStockData = generateStockData(basePrice, daysToLookBack, 90)
 
+    let generatedStockData = generateStockData(basePrice, daysToLookBack, 90)
     return (
         <>
-            <div id="select-duration-div">
-                <select name="selectDuration" id="selectDuration" onChange={handleChange}>
-                    <option value="1">1 Day</option>
-                    <option value="7">7 Days</option>
-                    <option value="30" selected>30 Days</option>
-                    <option value="90">90 Days</option>
-                </select>
-                {sessionUser && <h3>Total Market Value of {sessionUser.username}'s Stock Portfolio: ${portfolioValue}</h3>}
-            </div>
-            <div className="portfolio-victory-chart">
+            {sessionUser &&
+                <div id="select-duration-div">
+                    <select name="selectDuration" id="selectDuration" onChange={handleChange}>
+                        <option value="1">1 Day</option>
+                        <option value="7">7 Days</option>
+                        <option value="30" selected>30 Days</option>
+                        <option value="90">90 Days</option>
+                    </select>
+                    {sessionUser && <h3>Total Market Value of {sessionUser.username}'s Stock Portfolio: ${portfolioValue}</h3>}
+                </div>
+            }
+            {sessionUser && <div className="portfolio-victory-chart">
                 <VictoryChart
                     domainPadding={{ x: 25 }}
                     scale={{ x: "time" }}
@@ -147,6 +149,7 @@ function PortfolioChart() {
                     />
                 </VictoryChart >
             </div>
+            }
         </>
     )
 

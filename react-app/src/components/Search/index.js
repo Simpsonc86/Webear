@@ -6,7 +6,7 @@ import { addStockToWatchlistThunk } from "../../store/watchlist";
 import { NavLink } from "react-router-dom";
 import "./index.css"
 
-export default function Search({watchlistId}) {
+export default function Search({ watchlistId }) {
     const dispatch = useDispatch()
     const stocks = useSelector((state) => (state.stocks.stocks ? Object.values(state.stocks.stocks) : []));
     // console.log("Type of stocks is: ",typeof stocks);
@@ -39,11 +39,11 @@ export default function Search({watchlistId}) {
     }
 
     // console.log("USE STATE STOCKS",searchList);
-    console.log(watchlistId)
+    // console.log(watchlistId)
 
-    const handleAddStock = (stockId, stockName) => (e) =>  {
+    const handleAddStock = (stockId, stockName) => (e) => {
         e.preventDefault()
-        dispatch(addStockToWatchlistThunk(stockId,watchlistId))
+        dispatch(addStockToWatchlistThunk(stockId, watchlistId))
 
         console.log(stockId, stockName)
         setSearchList([])
@@ -58,7 +58,7 @@ export default function Search({watchlistId}) {
             <div className="search-list-stock">
                 {searchList.map((stock, index) => {
 
-                    return (<div  key={stock.id} value={stock.id} onClick={handleAddStock(stock.id, stock.company_name)}>{`${stock.company_name} (${stock.ticker_symbol})`}</div>)
+                    return (<div key={stock.id} value={stock.id} onClick={handleAddStock(stock.id, stock.company_name)}>{`${stock.company_name} (${stock.ticker_symbol})`}</div>)
                     //<OpenModalButton className="search" buttonText={stock.company_name } key={index} modalComponent={<StockModal/>} isLink={true} to={`/stocks/${stock.id - 1}`}></OpenModalButton>
                 })}
             </div>

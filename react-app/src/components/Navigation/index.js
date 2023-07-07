@@ -13,16 +13,15 @@ function Navigation({ isLoaded }) {
 		<div className='outer-nav-div'>
 			<div className='main-nav-div'>
 				<div className='left-side-nav-links'>
-					<NavLink className="home-link"exact to="/">
-						<img className="webear-logo"src="/webearLogo.png" alt="webear-logo" />
+					<NavLink className="home-link" exact to="/">
+						<img className="webear-logo" src="/webearLogo.png" alt="webear-logo" />
 						<h1>Webear</h1>
 					</NavLink>
-					<NavLink className="nav-links"exact to="/stocks">Market</NavLink>
-					<NavLink className="nav-links"exact to="/dashboard">Trade</NavLink>
-					<NavLink className="nav-links"exact to="/stocks">Features</NavLink>
+					<NavLink className="nav-links" exact to="/stocks">Stocks</NavLink>
+					<NavLink className="nav-links" exact to="/dashboard">Trade</NavLink>
 				</div>
 				<div className='right-side-nav-links'>
-					<StockSearchFilter/>
+					<StockSearchFilter />
 					{isLoaded && (
 						<div className='signup-login'>
 							<ProfileButton user={sessionUser} />
