@@ -4,6 +4,11 @@
 
 }
 
+.watchlist_entryBg {
+        background-color: rgba(0, 0, 0, 0.0);
+
+}
+
 .company_name {
     width: 13em;
 }
@@ -16,8 +21,8 @@
     width:4em;
 }
 
-/* .watchlistContainer {
+.watchlistContainer {
     display: flex;
     flex-direction: column;
-    gap: 4em
-} */
+    gap: 2em
+}
