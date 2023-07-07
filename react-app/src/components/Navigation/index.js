@@ -18,7 +18,7 @@ function Navigation({ isLoaded }) {
 						<h1>Webear</h1>
 					</NavLink>
 					<NavLink className="nav-links" exact to="/stocks">Stocks</NavLink>
-					<NavLink className="nav-links" exact to="/dashboard">Trade</NavLink>
+					{sessionUser && <NavLink className="nav-links" exact to="/dashboard">Trade</NavLink>}
 				</div>
 				<div className='right-side-nav-links'>
 					<StockSearchFilter />
