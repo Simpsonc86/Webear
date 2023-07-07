@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { stockTransactionThunk } from "../../store/transaction";
 import { getAllStocksThunk } from "../../store/stocks";
-
+import './index.css';
 const Transaction = () => {
 
     const sessionUser = useSelector((state) => state.session.user);
@@ -45,10 +45,11 @@ const Transaction = () => {
     return (
         <div>
 
-            <form onSubmit={handleSubmit}>
+            <form
+            className = "transactionForm"onSubmit={handleSubmit}>
                 <div>
-                    <div>
-                        <div>
+            
+                        <div className= "transType">
 
                             <label>
                                 Trade Type
@@ -64,7 +65,7 @@ const Transaction = () => {
                                 <option value='SELL'>Sell</option>
                             </select>
                         </div>
-                        <div>
+                        <div className= "transStock">
 
                             <label>
                                 Stock
@@ -85,6 +86,7 @@ const Transaction = () => {
 
                             </select>
                         </div>
+                        <div className="transShares">
                         <label>
                             Shares
                         </label>
@@ -96,8 +98,8 @@ const Transaction = () => {
                                 setShares_moved(e.target.value)
                             }}
                         />
-                    </div>
-                    <div>
+    </div>
+                    <div className="transAmount">
                         <label>
                             Total Amount
                         </label>
