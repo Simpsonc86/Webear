@@ -28,8 +28,8 @@
 .watchlistContainer {
     display: flex;
     flex-direction: column;
-    gap: 2em;
-    margin-left: 3em;
+    gap: 1.5em;
+    
 }
 
 .watchlistSelect{
