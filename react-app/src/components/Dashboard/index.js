@@ -50,7 +50,7 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className="charts-and-portfolio-div">
-                    <h2 className="charts-container-div"><PortfolioChart /></h2>
+                    <div className="charts-container-div"><PortfolioChart /></div>
                     <div className="dashboard-portfolio">
                         <h3>Portfolio</h3>
                         <Portfolio />

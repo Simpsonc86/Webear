@@ -5,6 +5,8 @@ import "./PortfolioChart.css"
 import { VictoryChart, VictoryAxis, VictoryCandlestick } from 'victory';
 
 function PortfolioChart() {
+
+    const sessionUser = useSelector(state => state.session.user);
     const [selectedValue, setSelectedValue] = useState('');
     const handleChange = (event) => {
         setSelectedValue(event.target.value)
@@ -37,7 +39,7 @@ function PortfolioChart() {
     }
 
     let portfolioList = Object.values(portfolio)
-    console.log(portfolioList)
+    // console.log(portfolioList)
 
     function sumPortfolio(portfolioList) {
         let portfolioSum = 0;
@@ -102,13 +104,14 @@ function PortfolioChart() {
 
     return (
         <>
-            <div className="select-duration-div">
+            <div id="select-duration-div">
                 <select name="selectDuration" id="selectDuration" onChange={handleChange}>
                     <option value="1">1 Day</option>
                     <option value="7">7 Days</option>
                     <option value="30" selected>30 Days</option>
                     <option value="90">90 Days</option>
                 </select>
+                {sessionUser && <h3>Total Market Value of {sessionUser.username}'s Stock Portfolio</h3>}
             </div>
             <div className="portfolio-victory-chart">
                 <VictoryChart

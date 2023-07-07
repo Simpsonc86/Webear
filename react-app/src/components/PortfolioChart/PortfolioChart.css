@@ -1,5 +1,15 @@
 .portfolio-victory-chart {
     /* border: blue 1px solid; */
-    max-width: 1500px;
+    max-width: 93%;
+    /* max-height:40%; */
 
+}
+#select-duration-div{
+    display: flex;
+    position: absolute;
+    max-height: 1em;
+    align-items: center;
+}
+#selectDuration{
+    margin: 10px;
 }
