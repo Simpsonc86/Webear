@@ -98,7 +98,7 @@ function Watchlists() {
                     watchlists[watchlistId]?.stocks.map((s) => {
 
                         return (
-                            <OpenModalButton  modalComponent={WatchlistModal} isLink={true}  key={s.id}
+                            <OpenModalButton  modalComponent={WatchlistModal()} isLink={true}  key={s.id}
                                 buttonText={
                                     <div className="watchlist_entry">
                                         <div className="company_name">{s.company_name}</div>
@@ -115,6 +115,10 @@ function Watchlists() {
 
                 }
 
+            </div>
+            <div>
+                <label>Add Stock</label>
+                <Search watchlistId={watchlistId} />
             </div>
             <div>
                 <div>
@@ -137,10 +141,7 @@ function Watchlists() {
             <div>
                 <button onClick={handleDelete}>Delete Watchlist</button>
             </div>
-            <div>
-                <label>Add Stock</label>
-                <Search watchlistId={watchlistId}/>
-            </div>
+
         </div>
     )
 }

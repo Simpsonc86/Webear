@@ -21,6 +21,7 @@ function OpenModalButton({
   else
     modalType = <div onClick={onClick}>{buttonText}</div>
 
+  console.log("IN OpenModalButton", modalType)
   return (
     modalType
   );

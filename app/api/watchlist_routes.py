@@ -33,6 +33,18 @@ def add_Watchlist():
         return watchlist.to_dict()
     return {'errors': ['Unauthorized']}, 401
 
+@watchlist_routes.route('/<int:watchlist_id>/<int:stock_id>', methods=['DELETE'])
+def delete_stock_from_watchlist(watchlist_id, stock_id):
+    watchlist_to_delete = Watchlist.query.get(watchlist_id)
+    stock_to_delete = Stock.query.get(stock_id)
+    if stock_to_delete & watchlist_to_delete:
+        stock = watchlists_stocks.delete().where((watchlists_stocks.c.watchlist_id > 2) & (watchlists_stocks.c.stock_id > 2))
+        db.session.commit()
+        watchlist = Watchlist.query.get(watchlist_id)
+        return {watchlist.to_dict()}
+
+
+
 @watchlist_routes.route('/<int:id>', methods=['DELETE'])
 def delete_Watchlist(id):
     watchlist_to_delete = Watchlist.query.get(id)

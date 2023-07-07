@@ -33,10 +33,8 @@ const getWatchlists = (watchlists) => ({
 })
 
 export const deleteStockFromWatchlistThunk = (stockId, watchlistId) => async (dispatch) => {
-    const response = await fetch("/api/watchlist/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({stockId, watchlistId}),
+    const response = await fetch(`/api/watchlist/${watchlistId}/${stockId}`, {
+        method: "DELETE"
     })
     if (response.ok) {
 
