@@ -15,6 +15,7 @@ function LoginFormSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await dispatch(sessionActions.login(email, password));
+    console.log(data)
     if (data) {
       setErrors(data);
     }

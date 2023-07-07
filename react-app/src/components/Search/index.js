@@ -41,11 +41,13 @@ export default function Search({watchlistId}) {
     // console.log("USE STATE STOCKS",searchList);
     console.log(watchlistId)
 
-    const handleAddStock = (stockId, stockName) => (e) =>  {
+    const handleAddStock = (stockId, stockName) => async (e) =>  {
         e.preventDefault()
-        dispatch(addStockToWatchlistThunk(stockId,watchlistId))
+        const data = await dispatch(addStockToWatchlistThunk(stockId,watchlistId))
 
-        console.log(stockId, stockName)
+        if (data.error)
+            window.alert("Please select a watchlist!")
+
         setSearchList([])
         document.getElementById("stockItem").value = ""
 

@@ -45,12 +45,15 @@ function Watchlists() {
 
 
 
-    const handleNewWatchlist =  (e) => {
+    const handleNewWatchlist =  async (e) => {
         e.preventDefault();
         const user_id = sessionUser.id
         const newWatchlist = {name, user_id}
 
-        dispatch(addWatchlistThunk(newWatchlist))
+        const data = await dispatch(addWatchlistThunk(newWatchlist))
+
+        if (data.errors)
+            window.alert("Your watchlist needs a name!")
         watchlistNames.push({name:addedWatchlist.name, id:addedWatchlist.id})
         setName("")
 
