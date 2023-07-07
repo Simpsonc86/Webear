@@ -60,3 +60,8 @@ select:hover{
 #selectWatch{
     width: 15em;
 }
+.watchlistAddList{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
