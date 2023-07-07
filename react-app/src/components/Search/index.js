@@ -47,6 +47,8 @@ export default function Search({watchlistId}) {
 
         console.log(stockId, stockName)
         setSearchList([])
+        document.getElementById("stockItem").value = ""
+
 
     }
 

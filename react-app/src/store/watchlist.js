@@ -32,7 +32,7 @@ const getWatchlists = (watchlists) => ({
     watchlists
 })
 
-export const deleteStockFromWatchlistThunk = (stockId, watchlistId) => async (dispatch) => {
+export const deleteStockFromWatchlistThunk = (watchlistId, stockId) => async (dispatch) => {
     const response = await fetch(`/api/watchlist/${watchlistId}/${stockId}`, {
         method: "DELETE"
     })
