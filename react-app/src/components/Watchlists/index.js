@@ -121,8 +121,8 @@ function Watchlists() {
                 <Search watchlistId={watchlistId} />
                 </div>
             <div>
-                <div className="watchlistAddList">
-                    <form onSubmit={handleNewWatchlist}>
+                <div>
+                    <form className="watchlistAddList" onSubmit={handleNewWatchlist}>
                         <label><div>Add New Watchlist</div></label>
                         <input
                             type="watchlist_name"
