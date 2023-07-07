@@ -12,6 +12,7 @@ const Portfolio = () => {
 
     const dispatch = useDispatch();
     // console.log(sessionUser)
+    const sessionUser = useSelector(state => state.session.user);
 
     const transactions = Object.values(
         useSelector((state) => (state.transaction.transactions ? state.transaction.transactions : []))
@@ -50,7 +51,7 @@ const Portfolio = () => {
     return (
         <div>
 
-                <div className="portGrid">
+               {sessionUser && <div className="portGrid">
                 <div className="headings">
                 <h3 className="headSymbol">Symbol</h3>
                 <h3 className="headName">Name</h3>
@@ -67,7 +68,7 @@ const Portfolio = () => {
                     <div className="avgPrice">{stock.stock.base_price}</div>
                 </div>
             ))}
-            </div>
+            </div>}
         </div>
     )
 
