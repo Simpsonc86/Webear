@@ -25,13 +25,15 @@
     align-items: start;
     padding-left: 10px;
 }
-.submit{
+.submit, .demo-link{
     margin-top: 30px;
     height: 60px;
     border-radius: 15px;
     width: 70%;
     background-color: blue;
     color: white;
+    border: 0px;
+    font-size: 1em;
 }
 .botCont{
     display: flex;
@@ -44,4 +46,11 @@
 .header{
     margin-left: 100px;
     margin-bottom: 0px;
+}
+
+.demo-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }

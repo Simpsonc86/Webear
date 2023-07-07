@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { login } from "../../store/session";
+import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect, useHistory, Link } from "react-router-dom";
 import "./LoginForm.css";
 function LoginFormSection() {
   const dispatch = useDispatch();
@@ -14,11 +14,23 @@ function LoginFormSection() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login(email, password));
+    const data = await dispatch(sessionActions.login(email, password));
     if (data) {
       setErrors(data);
     }
   };
+
+  const loginDemoUser = async (e) => {
+    e.preventDefault()
+    const email = "demo@aa.io"
+    const password = "demopassword"
+    const data = await dispatch(sessionActions.login(email, password));
+    if (data) {
+      setErrors(data);
+    } else {
+      history.push("/dashboard")
+    }
+  }
 
   return (
     <>
@@ -53,6 +65,7 @@ function LoginFormSection() {
         <button class="submit" type="submit">
           Log In
         </button>
+        <Link className='demo-link' onClick={loginDemoUser}>Demo user</Link>
       </form>
       <div class="botCont">
         <p class="signup">Don't have an account yet?</p>
