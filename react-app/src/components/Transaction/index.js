@@ -19,12 +19,26 @@ const Transaction = () => {
 
 
 
+
     let selectStocks = []
+    let sellSelectStocks = []
 
+        for (let stock in stocks) {
+            selectStocks.push({value: stocks[stock].id, label: `${stocks[stock].company_name} (${stocks[stock].ticker_symbol})`})
+        }
 
-    for (let stock in stocks) {
-        selectStocks.push({value: stocks[stock].id, label: `${stocks[stock].company_name} (${stocks[stock].ticker_symbol})`})
+        for (let s of Object.values(sessionUser.portfolio)){
+            sellSelectStocks.push({ value: s.stock.id, label: `${s.stock.company_name} (${s.stock.ticker_symbol})` })
+        }
+
+    let stocksOwned = {}
+    for (let s of Object.values(sessionUser.portfolio)) {
+        stocksOwned[s.stock.id] = {stock:s.stock, shares: s.shares_owned}
+
     }
+
+    console.log(stocksOwned)
+
 
 
     useEffect(() => {
@@ -35,10 +49,19 @@ const Transaction = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const stock_id = company.id
-        const transaction = {shares_moved, share_price, transaction_type, stock_id}
 
-        await dispatch(stockTransactionThunk(transaction))
+        if (transaction_type === "SELL" &&
+            stocksOwned[stock_id].shares < shares_moved) {
+            window.alert("You only own " + stocksOwned[stock_id].shares + " shares")
+        }
+        else {
+            const transaction = {shares_moved, share_price, transaction_type, stock_id}
+
+            await dispatch(stockTransactionThunk(transaction))
+        }
+
     }
+
 
 
 
@@ -48,7 +71,7 @@ const Transaction = () => {
             <form
             className = "transactionForm"onSubmit={handleSubmit}>
                 <div>
-            
+
                         <div className= "transType">
 
                             <label>
@@ -79,9 +102,11 @@ const Transaction = () => {
                                 value={company.id}
                             >
                                 <option value='default' disabled selected hidden>Select a stock</option>
-                                {
+                                {transaction_type=== "BUY" ?
                                 selectStocks.map((s) =>
-                                    <option key = {s.value} value={s.value}>{s.label}</option>)
+                                    <option key = {s.value} value={s.value}>{s.label}</option>) :
+                                sellSelectStocks.map((s) =>
+                                    <option key={s.value} value={s.value}>{s.label}</option>)
                                 }
 
                             </select>
@@ -92,6 +117,7 @@ const Transaction = () => {
                         </label>
                         <input
                             type="number"
+                            min="1"
                             placeholder="Select number of shares"
                             value={shares_moved}
                             onChange={(e) => {

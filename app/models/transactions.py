@@ -33,3 +33,15 @@ class Transaction(db.Model):
             "stock": self.stock.to_dict()
 
         }
+    def to_dict_no_user(self):
+        return {
+            "id": self.id,
+            "date": self.date,
+            "transaction_type": self.transaction_type,
+            "share_price": self.share_price,
+            "shares_moved": self.shares_moved,
+            "user_id": self.user_id,
+            "stock_id": self.stock_id,
+            "stock": self.stock.to_dict()
+
+        }

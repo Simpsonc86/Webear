@@ -2,6 +2,7 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from .transactions import Transaction
+import json
 
 
 class User(db.Model, UserMixin):
@@ -19,6 +20,7 @@ class User(db.Model, UserMixin):
     transactions = db.relationship("Transaction", back_populates="user")
     watchlists = db.relationship("Watchlist", back_populates="user")
 
+
     @property
     def password(self):
         return self.hashed_password
@@ -27,12 +29,40 @@ class User(db.Model, UserMixin):
     def password(self, password):
         self.hashed_password = generate_password_hash(password)
 
-    def portfolio(self):
-        return Transaction.query.filter_by(user_id = self.id).all()
+
+
+    def calculate_portfolio(self):
+        portfolio = {}
+
+        for t in self.transactions:
+            if not t.stock.ticker_symbol in portfolio.keys():
+                portfolio[t.stock.ticker_symbol] = { "stock": t.stock.to_dict(), "shares_owned": t.shares_moved }
+
+
+            else:
+                if t.transaction_type == "SELL":
+                    total_shares = portfolio[t.stock.ticker_symbol]["shares_owned"] - t.shares_moved
+                    if total_shares == 0:
+                        del portfolio[t.stock.ticker_symbol]
+                    else:
+                        portfolio[t.stock.ticker_symbol] = { "stock": t.stock.to_dict(), "shares_owned": total_shares }
+
+                elif t.transaction_type == "BUY":
+                    total_shares = portfolio[t.stock.ticker_symbol]['shares_owned'] + t.shares_moved
+                    portfolio[t.stock.ticker_symbol] = { "stock": t.stock.to_dict(), "shares_owned": total_shares }
+
+
+        return portfolio
+
+    def total_portfolio_value(self):
+        port = self.calculate_portfolio()
+        portfolio_list = [v['shares_owned'] * v['stock']['base_price'] for v in port.values()]
+
+        return sum(portfolio_list)
+
 
 
     def check_password(self, password):
-        print("!!!!!!", self.portfolio())
         return check_password_hash(self.password, password)
 
     def to_dict(self):
@@ -41,5 +71,7 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
             'balance': self.balance,
-            # 'portfolio': self.portfolio()
+            'portfolio': self.calculate_portfolio(),
+            # {{self.calculate_portfolio(),}}
+            'total_portfolio': self.total_portfolio_value()
         }
