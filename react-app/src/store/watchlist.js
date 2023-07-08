@@ -46,7 +46,8 @@ export const deleteStockFromWatchlistThunk = (watchlistId, stockId) => async (di
 }
 
 export const addStockToWatchlistThunk = (stock_id, watchlist_id) => async (dispatch)=>{
-    console.log("GET TO THunkdfdf")
+
+
     const response = await fetch("/api/watchlist/add_stock", {
 
         method: "POST",
@@ -54,12 +55,20 @@ export const addStockToWatchlistThunk = (stock_id, watchlist_id) => async (dispa
         body: JSON.stringify({stock_id, watchlist_id}),
     })
 
+
     if (response.ok) {
 
         const res = await response.json()
 
 
         dispatch(addStockToWatchlist(res.watchlistId, res.stock))
+    }
+    else {
+
+        const data = await response.json();
+        console.log("IN THUNK",data)
+        if (data.error)
+            return data;
     }
 }
 
@@ -84,11 +93,15 @@ export const addWatchlistThunk = (watchlist) => async (dispatch) => {
     })
 
     if (response.ok) {
-
         const watchlist = await response.json()
 
-
         dispatch(addWatchlist(watchlist))
+    }
+    else {
+
+        const data = await response.json();
+        if (data.errors)
+            return data;
     }
 }
 

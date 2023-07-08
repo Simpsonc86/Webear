@@ -32,3 +32,12 @@ class Stock(db.Model):
             "updated_at": self.updated_at
 
         }
+    def to_dict_with_time (self):
+        return {
+            "id": self.id,
+            "base_price": self.base_price,
+            "company_name": self.company_name,
+            "ticker_symbol": self.ticker_symbol,
+            "available_shares": self.available_shares,
+            "total_shares": self.total_shares,
+        }
