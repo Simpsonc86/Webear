@@ -46,11 +46,11 @@ export default function StockSearchFilter() {
                 <input className='search-field' onChange={filterSearch} onClick={navigateToStock} placeholder='Search for a Company'></input>
             </div>
 
-            <div className="search-list-stock">
+            {!!searchList.length && <div className="search-list-stock">
                 {searchList.map((stock, index) => (
                     <NavLink className="search-selection" key={index} onClick={navigateToStock} to={`/stocks/${stock.id - 1}`}>{stock.company_name}</NavLink>
                 ))}
-            </div>
+            </div>}
         </div>
     )
 }
