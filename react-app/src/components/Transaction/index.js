@@ -12,11 +12,12 @@ const Transaction = () => {
     const stocks = useSelector((state)=>state.stocks.stocks);
 
 
-    const [shares_moved, setShares_moved] = useState("")
+    const [shares_moved, setShares_moved] = useState(0)
     const [share_price, setShare_price] = useState("")
     const [transaction_type, setTransaction_Type] = useState("BUY")
     const [company, setCompany] = useState("")
     const [sellSelectStocks, setSellSelectStocks] = useState([])
+    const [stocksOwned, setStocksOwned] = useState({})
 
 
 
@@ -29,7 +30,6 @@ const Transaction = () => {
     }
 
 
-    let stocksOwned = {}
     // for (let s of Object.values(sessionUser.portfolio)) {
     //     // ellSelectStocks.push({ value: s.stock.id, label: `${s.stock.company_name} (${s.stock.ticker_symbol})` })
     //     // setSellSelectStocks([...sellSelectStocks, { value: s.stock.id, label: `${s.stock.company_name} (${s.stock.ticker_symbol})` }])
@@ -42,6 +42,7 @@ const Transaction = () => {
 
 
     useEffect(() => {
+        console.log("hitting this")
         let ellSelectStocks=[]
         for (let s of Object.values(sessionUser.portfolio)) {
             ellSelectStocks.push({ value: s.stock.id, label: `${s.stock.company_name} (${s.stock.ticker_symbol})` })
@@ -51,6 +52,12 @@ const Transaction = () => {
         }
 
         setSellSelectStocks(ellSelectStocks)
+        let tocksOwned = {}
+        for (let s of Object.values(sessionUser.portfolio)) {
+            tocksOwned[s.stock.id] = { stock: s.stock, shares: s.shares_owned }
+
+        }
+        setStocksOwned(tocksOwned)
     },[])
 
     useEffect(() => {
@@ -59,58 +66,74 @@ const Transaction = () => {
     }, [dispatch,company,shares_moved,transaction_type,share_price]);
 
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const stock_id = company.id
 
 
 
-        console.log("stocks owned", stocksOwned[stock_id].shares)
-        console.log("shares moved", shares_moved)
 
 
-        if (transaction_type === "SELL" &&
-            stocksOwned[stock_id].shares < shares_moved) {
+
+        console.log("BEGINNING",stock_id)
+        console.log("BEGGINING",stocksOwned[stock_id])
+        // if (stocksOwned[stock_id])
+        //     console.log("HOHHOHOH")
+        if (transaction_type === "SELL" && stocksOwned[stock_id].shares < shares_moved) {
+
             window.alert("You only own " + stocksOwned[stock_id].shares + " shares")
+
         }
         else {
             const transaction = {shares_moved, share_price, transaction_type, stock_id}
 
-            if (transaction_type === "BUY")
-                stocksOwned[stock_id].shares = stocksOwned[stock_id].shares + shares_moved
-            else if (transaction_type === "SELL")
-                stocksOwned[stock_id].shares = stocksOwned[stock_id].shares - shares_moved
+            if (transaction_type === "BUY" && stocksOwned[stock_id]) {
+                // const nextArtwork = { ...person.artwork, city: 'New Delhi' };
+                // const nextPerson = { ...person, artwork: nextArtwork };
+                // setPerson(nextPerson);
 
-            console.log("stocks owned", stocksOwned[stock_id].shares)
-            console.log("shares moved", shares_moved)
+                // setMember((prevState) => ({ ...prevState, [name]: value }));
 
+                let copyS = {...stocksOwned}
+                copyS[stock_id].shares = copyS[stock_id].shares + parseInt(shares_moved)
+                setStocksOwned(copyS)
+                console.log(stocksOwned[stock_id])
+
+                //stocksOwned[stock_id].shares = stocksOwned[stock_id].shares  + parseInt(shares_moved)
+            }
+            else if (transaction_type === "BUY" && !stocksOwned[stock_id]){
+                let copyS = {...stocksOwned}
+                copyS[stock_id]={ stock: stocks[stock_id], shares: parseInt(shares_moved) }
+                setStocksOwned(copyS )
+                // console.log(stocksOwned)
+                // console.log(stocksOwned[stock_id])
+                // console.log(stocksOwned[stock_id].shares)
+                setSellSelectStocks([...sellSelectStocks, { value: stock_id, label: `${stocks[stock_id].company_name} (${stocks[stock_id].ticker_symbol})` }])
+            }
+            else if (transaction_type === "SELL") {
+                //stocksOwned[stock_id].shares = stocksOwned[stock_id].shares - parseInt(shares_moved)
+
+                let copyS = { ...stocksOwned }
+                copyS[stock_id].shares = copyS[stock_id].shares - parseInt(shares_moved)
+                setStocksOwned( copyS )
+            }
             if (stocksOwned[stock_id].shares === 0) {
-                delete stocksOwned[stock_id]
+                //delete stocksOwned[stock_id]
+                let copyS = {...stocksOwned}
+                delete copyS[stock_id]
+                setStocksOwned(copyS)
+                console.log("gets here")
                 setSellSelectStocks(sellSelectStocks.filter(stock => stock.value !== stock_id))
-                // for (let i = 0; i < sellSelectStocks.length; i++) {
-                //     if (sellSelectStocks[i].value === stock_id) {
-                //         console.log("hereJPJDFLDKFJD")
-
-                //         setSellSelectStocks(sellSelectStocks.filter(stock => item.name !== name))
-                //         sellSelectStocks.splice(i,1)
-                //         console.log(sellSelectStocks)
-                //     }
-                // }
-
-                // setSellSelectStocks(ellSelectStocks)
 
             }
-
+            console.log("END",stock_id)
+            console.log("END",stocksOwned[stock_id])
+            dispatch(stockTransactionThunk(transaction))
             setShares_moved(0)
 
 
-            await dispatch(stockTransactionThunk(transaction))
+
         }
-
-
-
-
-
 
 
     }
