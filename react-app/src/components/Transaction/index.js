@@ -16,39 +16,58 @@ const Transaction = () => {
     const [share_price, setShare_price] = useState("")
     const [transaction_type, setTransaction_Type] = useState("BUY")
     const [company, setCompany] = useState("")
+    const [sellSelectStocks, setSellSelectStocks] = useState([])
 
 
 
 
     let selectStocks = []
-    let sellSelectStocks = []
+    // let ellSelectStocks = []
 
-        for (let stock in stocks) {
-            selectStocks.push({value: stocks[stock].id, label: `${stocks[stock].company_name} (${stocks[stock].ticker_symbol})`})
-        }
-
-        for (let s of Object.values(sessionUser.portfolio)){
-            sellSelectStocks.push({ value: s.stock.id, label: `${s.stock.company_name} (${s.stock.ticker_symbol})` })
-        }
-
-    let stocksOwned = {}
-    for (let s of Object.values(sessionUser.portfolio)) {
-        stocksOwned[s.stock.id] = {stock:s.stock, shares: s.shares_owned}
-
+    for (let stock in stocks) {
+        selectStocks.push({value: stocks[stock].id, label: `${stocks[stock].company_name} (${stocks[stock].ticker_symbol})`})
     }
 
-    console.log(stocksOwned)
 
+    let stocksOwned = {}
+    // for (let s of Object.values(sessionUser.portfolio)) {
+    //     // ellSelectStocks.push({ value: s.stock.id, label: `${s.stock.company_name} (${s.stock.ticker_symbol})` })
+    //     // setSellSelectStocks([...sellSelectStocks, { value: s.stock.id, label: `${s.stock.company_name} (${s.stock.ticker_symbol})` }])
+    // }
+    for (let s of Object.values(sessionUser.portfolio)) {
+        stocksOwned[s.stock.id] = { stock: s.stock, shares: s.shares_owned }
+
+    }
+    // setSellSelectStocks([...sellSelectStocks, { value: 2, label: "bob" }])
 
 
     useEffect(() => {
+        let ellSelectStocks=[]
+        for (let s of Object.values(sessionUser.portfolio)) {
+            ellSelectStocks.push({ value: s.stock.id, label: `${s.stock.company_name} (${s.stock.ticker_symbol})` })
+
+            // setSellSelectStocks([...sellSelectStocks, { value: s.stock.id, label: `${s.stock.company_name} (${s.stock.ticker_symbol})` }])
+            // console.log(sellSelectStocks)
+        }
+
+        setSellSelectStocks(ellSelectStocks)
+    },[])
+
+    useEffect(() => {
         dispatch(getAllStocksThunk());
+
     }, [dispatch,company,shares_moved,transaction_type,share_price]);
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const stock_id = company.id
+
+
+
+        console.log("stocks owned", stocksOwned[stock_id].shares)
+        console.log("shares moved", shares_moved)
+
 
         if (transaction_type === "SELL" &&
             stocksOwned[stock_id].shares < shares_moved) {
@@ -57,8 +76,42 @@ const Transaction = () => {
         else {
             const transaction = {shares_moved, share_price, transaction_type, stock_id}
 
+            if (transaction_type === "BUY")
+                stocksOwned[stock_id].shares = stocksOwned[stock_id].shares + shares_moved
+            else if (transaction_type === "SELL")
+                stocksOwned[stock_id].shares = stocksOwned[stock_id].shares - shares_moved
+
+            console.log("stocks owned", stocksOwned[stock_id].shares)
+            console.log("shares moved", shares_moved)
+
+            if (stocksOwned[stock_id].shares === 0) {
+                delete stocksOwned[stock_id]
+                setSellSelectStocks(sellSelectStocks.filter(stock => stock.value !== stock_id))
+                // for (let i = 0; i < sellSelectStocks.length; i++) {
+                //     if (sellSelectStocks[i].value === stock_id) {
+                //         console.log("hereJPJDFLDKFJD")
+
+                //         setSellSelectStocks(sellSelectStocks.filter(stock => item.name !== name))
+                //         sellSelectStocks.splice(i,1)
+                //         console.log(sellSelectStocks)
+                //     }
+                // }
+
+                // setSellSelectStocks(ellSelectStocks)
+
+            }
+
+            setShares_moved(0)
+
+
             await dispatch(stockTransactionThunk(transaction))
         }
+
+
+
+
+
+
 
     }
 
