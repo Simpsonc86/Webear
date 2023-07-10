@@ -1,68 +1,98 @@
 .watchlist_entry {
-    display:flex;
-    gap:3em;
+    display: flex;
     border: 1px solid lightgray;
-    width: 60%;
+    width: 98%;
+    min-width: 240px
+}
+
+.populatedWatchlist {
+    display: flex;
+    flex-direction: column;
+    width: 98%;
+    max-width: 350px;
 }
 
 .watchlist_entryBg {
-        background-color: rgba(0, 0, 0, 0.0);
+    background-color: rgba(0, 0, 0, 0.0);
 
 
 }
 
 .company_name {
-    width: 13em;
-    padding-left: 2em;
+    min-width: 100px;
+    width: 50%;
+    padding-left: 2%
 }
 
-.ticker {
-    width: 4em;
-    padding-left: 2em;
+.watchlistTicker {
+    min-width: 65px;
+    width: 25%;
+    padding-left: 2%;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
 }
 
 .price {
-    width:4em;
+    min-width: 60px;
+    width: 25%;
+    padding-left: 2%
 }
 
 .watchlistContainer {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
-    
+
 }
 
-.watchlistSelect{
+.watchlistSelect {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 100%;
     gap: 1em;
-    margin-left: .3em;
+    max-width: 200px;
 }
 
-.watchlistAddStock{
+
+
+
+.watchlistAddStock {
     display: flex;
     gap: 1em;
     flex-direction: column;
-    width: 30%;
+    width: 50%;
 }
 
-.watchlistSubmit:hover{
+.watchlistSubmit:hover {
     cursor: pointer;
 }
 
-.deleteWatchlist{
+
+.deleteWatchlist {
     cursor: pointer;
 }
-select:hover{
+
+select:hover {
     cursor: pointer;
 }
-#selectWatch{
-    width: 15em;
+
+#selectWatch {
+    width: 100%;
+    max-width: 200px
 }
-.watchlistAddList{
+
+.watchlistAddList {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    width: 25%;
+    width: 100%;
+    max-width: 200px;
+}
+
+.deleteWatchlistDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+    max-width: 200px;
 }

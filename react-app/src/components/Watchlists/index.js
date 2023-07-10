@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getWatchlistsThunk } from "../../store/watchlist";
-import {useEffect, useState} from "react"
+import { useEffect, useState } from "react"
 import { addWatchlistThunk } from "../../store/watchlist";
 import { deleteWatchlistThunk } from "../../store/watchlist";
 import "./index.css"
@@ -24,12 +24,11 @@ function Watchlists() {
 
     for (let w in watchlists) {
 
-        watchlistNames.push({name:watchlists[w].name, id:watchlists[w].id})
+        watchlistNames.push({ name: watchlists[w].name, id: watchlists[w].id })
     }
 
     useEffect(() => {
-        if (addedWatchlist.id)
-        {
+        if (addedWatchlist.id) {
             setWatchlistId(addedWatchlist.id)
         }
 
@@ -45,16 +44,16 @@ function Watchlists() {
 
 
 
-    const handleNewWatchlist =  async (e) => {
+    const handleNewWatchlist = async (e) => {
         e.preventDefault();
         const user_id = sessionUser.id
-        const newWatchlist = {name, user_id}
+        const newWatchlist = { name, user_id }
 
         const data = await dispatch(addWatchlistThunk(newWatchlist))
 
         if (data.errors)
             window.alert("Your watchlist needs a name!")
-        watchlistNames.push({name:addedWatchlist.name, id:addedWatchlist.id})
+        watchlistNames.push({ name: addedWatchlist.name, id: addedWatchlist.id })
         setName("")
 
     }
@@ -88,26 +87,27 @@ function Watchlists() {
                         {
                             watchlistNames.map((w) => {
 
-                                return (<option key={w.id} value={w.id}>{w.name}</option>) })
+                                return (<option key={w.id} value={w.id}>{w.name}</option>)
+                            })
                         }
 
                     </select>
                 </div>
 
             </form>
-            <div >
+            <div className="populatedWatchlist">
 
                 {watchlists &&
                     watchlists[watchlistId]?.stocks.map((s) => {
 
                         return (
-                            <OpenModalButton watchlistId={watchlistId} stockId={s.id} modalComponent={<WatchlistModal watchlistId={watchlistId} stockId={s.id}/> } isLink={true}  key={s.id}
+                            <OpenModalButton watchlistId={watchlistId} stockId={s.id} modalComponent={<WatchlistModal watchlistId={watchlistId} stockId={s.id} />} isLink={true} key={s.id}
                                 buttonText={
                                     <div className="watchlist_entry">
                                         <div className="company_name">{s.company_name}</div>
-                                        <div className="ticker">{s.ticker_symbol}</div>
+                                        <div className="watchlistTicker">{s.ticker_symbol}</div>
                                         <div className="price">{s.base_price}</div>
-                                        <div className="change">Todays Change%</div>
+                                        {/* <div className="change">Todays Change%</div> */}
                                     </div>
                                 }
 
@@ -122,7 +122,7 @@ function Watchlists() {
             <div className="watchlistAddStock">
                 <label>Add Stock</label>
                 <Search watchlistId={watchlistId} />
-                </div>
+            </div>
             <div>
                 <div>
                     <form className="watchlistAddList" onSubmit={handleNewWatchlist}>
@@ -136,13 +136,13 @@ function Watchlists() {
                             }}
                         />
 
-                        <button className = "watchlistSubmit" type="submit">Add Watchlist</button>
+                        <button className="watchlistSubmit" type="submit">Add Watchlist</button>
                     </form>
 
                 </div>
             </div>
-            <div>
-                <button className = "deleteWatchlist" onClick={handleDelete}>Delete Watchlist</button>
+            <div className="deleteWatchlistDiv">
+                <button className="deleteWatchlist" onClick={handleDelete}>Delete Watchlist</button>
             </div>
 
         </div>
