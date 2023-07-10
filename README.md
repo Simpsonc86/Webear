@@ -5,12 +5,12 @@ Link to live site [Webear](https://webull.onrender.com)
 Check out the Wiki for more info [Wiki](https://github.com/Simpsonc86/Webull-Clone/wiki)
 
 ## Technologies used
-Python 3.9
-Flask
-SQLAlchemy
-React JS 17
-Redux
-Victory JS
+Python 3.9,
+Flask,
+SQLAlchemy,
+React JS 17,
+Redux,
+Victory JS,
 Validator JS
 
 ## Getting Started
