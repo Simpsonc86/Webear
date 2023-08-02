@@ -26,12 +26,12 @@ The search allows you to type in a stock by company name and have the results fi
 The list of all stocks can be sorted by 7 different methods. Sort by Stock ID, Ascending Company Name, Descending Company Name, Price Low, Price High, Amount Available Least, and Amount Available Most.
 
 ## Technologies used
-Python 3.9
-Flask
-SQLAlchemy
-React JS 17
-Redux
-Victory JS
+Python 3.9,
+Flask,
+SQLAlchemy,
+React JS 17,
+Redux,
+Victory JS,
 Validator JS
 
 #Project Goals
@@ -83,6 +83,9 @@ Happy trading!
 
 7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
 
+
 # DB Schema
 
 ![Alt text](250014460-a23653b8-14f1-440e-9b1e-c4d89321a7a6.png)
+
+
