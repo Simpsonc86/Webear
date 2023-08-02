@@ -16,11 +16,15 @@ The project includes a feature for the user to have a list of stock investments 
 
 The project also includes watchlist functionality. A set of watchlist can be accessed by default. A user can create their own watchlist and add and remove stocks based on company name and symbol. 
 
+## Transactions Feature
+Transactions are how you purchase or sell stocks in the portfolio. From the dashboard, a user can set the amount of shares they wish to buy of an available stock, and then see the total cost of the investment before submitting the transactions. Each transaction will update in the portfolio. 
+
 ## Search Feature
 The search allows you to type in a stock by company name and have the results filtered by what characters are input into the field. If the input value matches the a part of the string of letters in the company name, the resulting list of companies are shown. Clicking on a company in the list navigates to the individual company's page details.
 
 ## Sort Feature
-The list of all stocks can be sorted by 6 different methods.Ascending, Descending, Price Low, Price High, Amount Available Least, and Amount Available Most.
+The list of all stocks can be sorted by 7 different methods. Sort by Stock ID, Ascending Company Name, Descending Company Name, Price Low, Price High, Amount Available Least, and Amount Available Most.
+
 ## Technologies used
 Python 3.9
 Flask
@@ -30,7 +34,21 @@ Redux
 Victory JS
 Validator JS
 
-## Getting Started
+#Project Goals
+
+The primary goals of this project are as follows:
+
+   * To create a user-friendly and intuitive interface for managing imaginary stock investments.
+   * To implement a portfolio system that allows users to easily view their investments.
+   * To ensure data security and privacy by employing best practices in authentication and authorization.
+   * To deliver a functional and reliable Webull clone that provides value to its users.
+   * Collaborate on a new language and have daily SCRUM meetings.
+
+Feel free to explore the project further and provide feedback on any additional features or improvements you'd like to see.
+
+Happy trading!
+
+# Getting Started
 
 1. Clone the repository and from main branch on GitHub.
 
@@ -64,3 +82,7 @@ Validator JS
    ```
 
 7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+
+# DB Schema
+
+![Alt text](250014460-a23653b8-14f1-440e-9b1e-c4d89321a7a6.png)
