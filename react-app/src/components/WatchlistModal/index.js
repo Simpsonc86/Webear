@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { useEffect} from "react"
+// import { useEffect} from "react"
 import { useModal } from "../../context/Modal";
 import { deleteStockFromWatchlistThunk } from "../../store/watchlist";
 

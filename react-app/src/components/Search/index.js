@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllStocksThunk } from "../../store/stocks";
 import { addStockToWatchlistThunk } from "../../store/watchlist";
 
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import "./index.css"
 
 export default function Search({ watchlistId }) {
@@ -33,10 +33,10 @@ export default function Search({ watchlistId }) {
 
     }
 
-    const navigateToStock = (e) => {
-        setSearchList([])
-        e.target.value = ''
-    }
+    // const navigateToStock = (e) => {
+    //     setSearchList([])
+    //     e.target.value = ''
+    // }
 
     // console.log("USE STATE STOCKS",searchList);
     // console.log(watchlistId)

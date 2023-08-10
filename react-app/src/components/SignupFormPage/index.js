@@ -32,7 +32,7 @@ function SignupFormPage() {
     if(!validator.isEmail(email)){
       errorArr.push("Must enter valid email");
     }
-    if(dob.substring(0, 5).substring(0, 4)>'2005' || dob.substring(0,5).substring(0, 4) === '2005' && dob.substring(5, 7) > '07'){
+    if((dob.substring(0, 5).substring(0, 4)>'2005' || dob.substring(0,5).substring(0, 4) === '2005') && dob.substring(5, 7) > '07'){
       errorArr.push("Must be 18 or older")
     }
     if(!errorArr.length){

@@ -14,5 +14,5 @@ def all_stocks():
 def stock_details(id):
     stock = Stock.query.get(id)
     stock_to_dict = stock.to_dict()
-    print("Stock with id of ",id, " ", stock_to_dict)
+    # print("Stock with id of ",id, " ", stock_to_dict)
     return stock_to_dict

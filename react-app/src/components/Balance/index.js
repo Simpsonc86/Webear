@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { addToBalanceThunk } from "../../store/session";
-import { authenticate } from "../../store/session";
+// import { authenticate } from "../../store/session";
 
 const Balance = () => {
 
