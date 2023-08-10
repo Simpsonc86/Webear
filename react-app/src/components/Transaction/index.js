@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { stockTransactionThunk } from "../../store/transaction";
 import { getAllStocksThunk } from "../../store/stocks";
-import { authenticate } from "../../store/session";
+// import { authenticate } from "../../store/session";
 import './index.css';
 const Transaction = () => {
 
@@ -19,7 +19,7 @@ const Transaction = () => {
     const [company, setCompany] = useState("")
     const [sellSelectStocks, setSellSelectStocks] = useState([])
     const [stocksOwned, setStocksOwned] = useState({})
-    const [stocksOwnedArr, setStocksOwnedArr] = useState([])
+    // const [stocksOwnedArr, setStocksOwnedArr] = useState([])
 
 
     let selectStocks = []
@@ -42,7 +42,7 @@ const Transaction = () => {
 
 
     useEffect(() => {
-        console.log("hitting this")
+        // console.log("hitting this")
         let ellSelectStocks=[]
         for (let s of Object.values(sessionUser.portfolio)) {
             ellSelectStocks.push({ value: s.stock.id, label: `${s.stock.company_name} (${s.stock.ticker_symbol})` })
@@ -63,7 +63,7 @@ const Transaction = () => {
 
         // }
         // setStocksOwned(tocksOwned)
-    },[])
+    },[sessionUser.portfolio])
 
     useEffect(() => {
         dispatch(getAllStocksThunk());
@@ -74,8 +74,8 @@ const Transaction = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const stock_id = company.id
-        console.log("BEGINNING",stock_id)
-        console.log("BEGGINING",stocksOwned[stock_id])
+        // console.log("BEGINNING",stock_id)
+        // console.log("BEGGINING",stocksOwned[stock_id])
         let copyS = { ...stocksOwned }
         if (transaction_type === "SELL" && stocksOwned[stock_id].shares < shares_moved) {
 
@@ -86,7 +86,7 @@ const Transaction = () => {
             const transaction = {shares_moved, share_price, transaction_type, stock_id}
 
             if (transaction_type === "BUY" && stocksOwned[stock_id]) {
-                console.log(parseInt(parseInt(shares_moved) + stocksOwned[stock_id].shares))
+                // console.log(parseInt(parseInt(shares_moved) + stocksOwned[stock_id].shares))
                 let newEntry = { stock: stocks[stock_id], shares: parseInt(shares_moved) + stocksOwned[stock_id].shares }
 
                 setStocksOwned(prevState => ({
@@ -107,12 +107,12 @@ const Transaction = () => {
             if (copyS[stock_id].shares === 0) {
                 delete copyS[stock_id]
                 setStocksOwned(copyS)
-                console.log("gets here")
+                // console.log("gets here")
                 setSellSelectStocks(sellSelectStocks.filter(stock => stock.value !== stock_id))
 
             }
-            console.log("END",stock_id)
-            console.log("END",stocksOwned[stock_id])
+            // console.log("END",stock_id)
+            // console.log("END",stocksOwned[stock_id])
             dispatch(stockTransactionThunk(transaction))
             setShares_moved(0)
 

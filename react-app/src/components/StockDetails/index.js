@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { getAllStocksThunk } from "../../store/stocks";
-import { useParams, NavLink,useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import "./StockDetails.css"
 import { useEffect } from "react";
 import StockChart from "../StockChart"
@@ -20,11 +20,11 @@ function StockDetails() {
         useSelector((state) => (state.stocks.stocks ? Object.values(state.stocks.stocks) : [])
         );
 
-    console.log("These are the stocks from the store", stocks);
+    // console.log("These are the stocks from the store", stocks);
 
 
     const correctStock = stocks[Number(id.stockId)]
-    console.log("This is the stock with the correct id", correctStock);
+    // console.log("This is the stock with the correct id", correctStock);
     // if(stocks){
     // }else{
     //     return<div>loading...</div>

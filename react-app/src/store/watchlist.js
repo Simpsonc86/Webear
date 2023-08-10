@@ -66,7 +66,7 @@ export const addStockToWatchlistThunk = (stock_id, watchlist_id) => async (dispa
     else {
 
         const data = await response.json();
-        console.log("IN THUNK",data)
+        // console.log("IN THUNK",data)
         if (data.error)
             return data;
     }

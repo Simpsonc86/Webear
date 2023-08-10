@@ -65,7 +65,7 @@ def add_stock_to_watchlist():
 
     body = request.get_json()
     if not body['watchlist_id']:
-        print("HEKRLEKJRWELKRJELK")
+        # print("HEKRLEKJRWELKRJELK")
         return {'error': 'no watchlist'}, 401
     form = AddStockToWatchlistForm()
 

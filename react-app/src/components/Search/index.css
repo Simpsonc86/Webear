@@ -2,14 +2,35 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    background-color: white ;
+    background-image: linear-gradient(-264deg, #f0f0f0 0%, #459FF0 100%);
     /* text-decoration: none; */
-    z-index: 7;
+    z-index: 4;
     margin: 5px 0;
     padding:5px;
     border-radius: 3px;
-    /* color:#001b39; */
+    /* transform: translateX(270%); */
+    /* transform: translateX(160px) translateY(-700px); */
+    color:#001b39;
 }
+.search-list-stock-x{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    /* background-image: linear-gradient(-36deg, #f0f0f0 0%, #459FF0 100%); */
+    /* text-decoration: none; */
+    z-index: 4;
+    margin: 5px 0;
+    padding:5px;
+    border-radius: 3px;
+    /* transform: translateX(270%); */
+    transform: translateX(160px) translateY(-700px);
+    color:#001b39;
+}
+/* .search-list-stock:hover{
+    color:white;
+    background-image: linear-gradient(-36deg, blue 0%, #459FF0 100%);
+    border-radius: 2px;
+} */
 
 .search{
     color:#001b39;
