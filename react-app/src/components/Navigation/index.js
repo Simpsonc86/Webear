@@ -21,7 +21,7 @@ function Navigation({ isLoaded }) {
 					{sessionUser && <NavLink className="nav-links" exact to="/dashboard">Trade</NavLink>}
 				</div>
 				<div className='right-side-nav-links'>
-					<StockSearchFilter />
+					<StockSearchFilter className="search-list-stock"/>
 					{isLoaded && (
 						<div className='signup-login'>
 							<ProfileButton user={sessionUser} />

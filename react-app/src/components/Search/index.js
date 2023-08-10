@@ -4,7 +4,7 @@ import { getAllStocksThunk } from "../../store/stocks";
 import { addStockToWatchlistThunk } from "../../store/watchlist";
 
 // import { NavLink } from "react-router-dom";
-import "./index.css"
+import "./Search.css"
 
 export default function Search({ watchlistId }) {
     const dispatch = useDispatch()
@@ -45,7 +45,7 @@ export default function Search({ watchlistId }) {
         e.preventDefault()
         const data = await dispatch(addStockToWatchlistThunk(stockId,watchlistId))
 
-        if (data.error)
+        if (data?.error)
             window.alert("Please select a watchlist!")
 
         setSearchList([])
