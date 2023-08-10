@@ -57,13 +57,13 @@ export default function Search({ watchlistId }) {
     return (
         <div className='search-filter'>
             <input id="stockItem" className='search-field' onChange={filterSearch} onClick={handleAddStock} placeholder='Search for a Company'></input>
-            <div className="search-list-stock">
+          {  searchList.length>0&&<div className="search-list-stock">
                 {searchList.map((stock, index) => {
 
-                    return (<div key={stock.id} value={stock.id} onClick={handleAddStock(stock.id, stock.company_name)}>{`${stock.company_name} (${stock.ticker_symbol})`}</div>)
+                    return (<div className="search"key={stock.id} value={stock.id} onClick={handleAddStock(stock.id, stock.company_name)}>{`${stock.company_name} (${stock.ticker_symbol})`}</div>)
                     //<OpenModalButton className="search" buttonText={stock.company_name } key={index} modalComponent={<StockModal/>} isLink={true} to={`/stocks/${stock.id - 1}`}></OpenModalButton>
                 })}
-            </div>
+            </div>}
         </div>
     )
 }

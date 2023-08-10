@@ -70,6 +70,25 @@ function Watchlists() {
 
     return (
         <div className="watchlistContainer">
+               <div>
+                <div>
+                    <form className="watchlistAddList" onSubmit={handleNewWatchlist}>
+                        <label><div>Add New Watchlist</div></label>
+                        <input
+                            type="watchlist_name"
+                            placeholder="Watchlist name"
+                            value={name}
+                            onChange={(e) => {
+                                setName(e.target.value)
+                            }}
+                        />
+
+                        <button className="watchlistSubmit" type="submit">Add Watchlist</button>
+                    </form>
+
+                </div>
+            </div>
+           
             <form onSubmit={handleNewWatchlist}>
                 <div className="watchlistSelect">
                     <label>
@@ -83,7 +102,7 @@ function Watchlists() {
                         }}
                         value={watchlistId}
                     >
-                        <option value='default' disabled selected hidden>Select a stock</option>
+                        <option value='default' disabled selected hidden>Select a Watchlist</option>
                         {
                             watchlistNames.map((w) => {
 
@@ -95,7 +114,10 @@ function Watchlists() {
                 </div>
 
             </form>
-            <div className="populatedWatchlist">
+            <div className="deleteWatchlistDiv">
+                <button className="deleteWatchlist" onClick={handleDelete}>Delete Watchlist</button>
+            </div>
+     {    watchlists[watchlistId]?.stocks.length>0&&   <div className="populatedWatchlist">
 
                 {watchlists &&
                     watchlists[watchlistId]?.stocks.map((s) => {
@@ -118,32 +140,12 @@ function Watchlists() {
 
                 }
 
-            </div>
-            <div className="watchlistAddStock">
-                <label>Add Stock</label>
+            </div>}
+            {watchlistNames[watchlistId-1]?.name&&<div className="watchlistAddStock">
+                <label>{watchlistNames[watchlistId-1]?.name?`Add Stock to ${watchlistNames[watchlistId-1]?.name}`:`Select a watchlist from the list above`}</label>
                 <Search watchlistId={watchlistId} />
-            </div>
-            <div>
-                <div>
-                    <form className="watchlistAddList" onSubmit={handleNewWatchlist}>
-                        <label><div>Add New Watchlist</div></label>
-                        <input
-                            type="watchlist_name"
-                            placeholder="Watchlist name"
-                            value={name}
-                            onChange={(e) => {
-                                setName(e.target.value)
-                            }}
-                        />
-
-                        <button className="watchlistSubmit" type="submit">Add Watchlist</button>
-                    </form>
-
-                </div>
-            </div>
-            <div className="deleteWatchlistDiv">
-                <button className="deleteWatchlist" onClick={handleDelete}>Delete Watchlist</button>
-            </div>
+            </div>}
+         
 
         </div>
     )
