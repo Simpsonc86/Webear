@@ -27,6 +27,7 @@
 }
 .outer-nav-div{
   width:100%;
+  display: flex;
 }
 
 .main-nav-div{

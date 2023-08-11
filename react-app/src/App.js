@@ -30,6 +30,7 @@ function App() {
           <Route exact path="/">
             <Navigation isLoaded={isLoaded} />
             <LandingPage />
+            <Footer/>
           </Route>
           <Route path="/login" >
             <Login />

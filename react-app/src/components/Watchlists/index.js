@@ -21,7 +21,7 @@ function Watchlists() {
     const addedWatchlist = useSelector((state) => (state.watchlist?.watchlist ? state.watchlist.watchlist : {}))
 
     let watchlistNames = Object.values(watchlists)
-    console.log("Watchlist Array: ",watchlistNames);
+    console.log("Watchlist Array: ", watchlistNames);
 
     // let watchlistNames = []
 
@@ -73,8 +73,8 @@ function Watchlists() {
 
     return (
         <div className="watchlistContainer">
-               <div>
-                <div>
+            <div className="watchlistOuterDiv">
+                <div className="watchlistInnerDiv">
                     <form className="watchlistAddList" onSubmit={handleNewWatchlist}>
                         <label><div>Add New Watchlist</div></label>
                         <input
@@ -91,7 +91,7 @@ function Watchlists() {
 
                 </div>
             </div>
-           
+
             <form onSubmit={handleNewWatchlist}>
                 <div className="watchlistSelect">
                     <label>
@@ -120,7 +120,7 @@ function Watchlists() {
             <div className="deleteWatchlistDiv">
                 <button className="deleteWatchlist" onClick={handleDelete}>Delete Watchlist</button>
             </div>
-     {    watchlists[watchlistId]?.stocks.length>0&&   <div className="populatedWatchlist">
+            {watchlists[watchlistId]?.stocks.length > 0 && <div className="populatedWatchlist">
 
                 {watchlists &&
                     watchlists[watchlistId]?.stocks.map((s) => {
@@ -144,12 +144,12 @@ function Watchlists() {
                 }
 
             </div>}
-            {console.log("This is the watchlist for the add input ",watchlists, " watchlistId: ", watchlistId)}
-            {watchlistId&&<div className="watchlistAddStock">
-                <label>{watchlistId?`Add Stock to ${watchlistNames[watchlistNames.length-1]?.name}`:`Select a watchlist from the list above`}</label>
+            {console.log("This is the watchlist for the add input ", watchlists, " watchlistId: ", watchlistId)}
+            {watchlistId && <div className="watchlistAddStock">
+                <label>{watchlistId ? `Add Stock to ${watchlistNames[watchlistNames.length - 1]?.name}` : `Select a watchlist from the list above`}</label>
                 <Search watchlistId={watchlistId} />
             </div>}
-         
+
 
         </div>
     )
@@ -164,17 +164,17 @@ export default Watchlists;
 
 
 // let response;
-    // let r
-    // const func = async () => {
+// let r
+// const func = async () => {
 
-    //     response = await fetch("/api/watchlist/", {
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //     },
+//     response = await fetch("/api/watchlist/", {
+//     headers: {
+//         "Content-Type": "application/json",
+//     },
 
 
-    // });
-    //     r = await response.json()
-    //     console.log(r)
-    // }
-    // func();
+// });
+//     r = await response.json()
+//     console.log(r)
+// }
+// func();
