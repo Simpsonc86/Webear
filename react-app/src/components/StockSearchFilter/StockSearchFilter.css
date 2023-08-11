@@ -1,17 +1,19 @@
 .search-list-stock-x{
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: relative;
     background-color: #ffffff ;
     /* text-decoration: none; */
-    z-index: 7;
+    z-index: 9;
+    width: 100%;
+    max-width: 800px;
     margin: 5px 0;
     padding:5px;
     border: 6px dotted #459ff0 ;;
     max-height: 200px;
     border-radius: 3px;
     overflow-y: scroll;
-    transform: translateX(100px) translateY(-100px);
+    /* transform: translateX(100px) translateY(-100px); */
     /* height:400px; */
     /* color:#001b39; */
 }
@@ -29,6 +31,12 @@
 .search-field{
     border-radius: 5px;
     height:30px;
+    max-width: 800px;
+    width: 100%;
+}
+.search-filter{
+
+    padding-bottom:2rem;
 }
 .search-input-div{
     display: flex;

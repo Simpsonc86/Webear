@@ -1,15 +1,18 @@
 .watchlist_entry {
     display: flex;
-    border: 1px solid lightgray;
-    width: 98%;
-    min-width: 240px
+    /* border: 1px solid lightgray; */
+    width: 100%;
+    max-width: 800px;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .populatedWatchlist {
     display: flex;
     flex-direction: column;
-    width: 98%;
-    max-width: 350px;
+    width: 100%;
+    max-width: 800px;
+    gap:1rem;
 }
 
 .watchlist_entryBg {
@@ -19,22 +22,25 @@
 }
 
 .company_name {
-    min-width: 100px;
-    width: 50%;
-    padding-left: 2%
+    max-width: 100px;
+    width: 100%;
+    word-wrap: break-word;
+    /* width: 20%; */
+    /* padding-left: 2% */
 }
 
 .watchlistTicker {
-    min-width: 65px;
-    width: 25%;
+    max-width: 65px;
+    width: 100%;
     padding-left: 2%;
-    border-left: 1px solid lightgray;
-    border-right: 1px solid lightgray;
+    padding-right: 2%;
+    border-left: 1px solid slategray;
+    border-right: 1px solid slategray;
 }
 
 .price {
-    min-width: 60px;
-    width: 25%;
+    min-width: 40px;
+    /* width: 10%; */
     padding-left: 2%
 }
 
@@ -51,6 +57,9 @@
 .watchlistOuterDiv, .watchlistInnerDiv{
     display: flex;
     justify-content: center;
+    align-items: center;
+    /* width: min(100%, 200px); */
+    width: 100%;
 }
 
 .watchlistSelect {
@@ -58,7 +67,7 @@
     flex-direction: column;
     width: 100%;
     gap: 1em;
-    width: min(100%, 200px);
+    /* width: max(100% ,800px); */
 }
 
 
@@ -68,7 +77,8 @@
     display: flex;
     gap: 1em;
     flex-direction: column;
-    /* width: 50%; */
+    width: 100%;
+    max-width: 800px;
 }
 
 .watchlistSubmit:hover {
@@ -78,8 +88,10 @@
 
 .deleteWatchlist {
     cursor: pointer;
-    margin:0;
-    padding:0;
+    /* margin:0; */
+    /* padding:0; */
+    /* width: min(100%, 800px); */
+    width: 100%;
 }
 
 select:hover {
@@ -88,7 +100,7 @@ select:hover {
 
 #selectWatch {
     width: 100%;
-    max-width: 200px
+    /* max-width: 200px */
 }
 
 .watchlistAddList {
@@ -96,7 +108,8 @@ select:hover {
     flex-direction: column;
     gap: 1em;
     width: 100%;
-    max-width: 200px;
+    max-width: 800px;
+    /* width: max(100%, 800px); */
 }
 
 .deleteWatchlistDiv {
@@ -104,5 +117,16 @@ select:hover {
     flex-direction: column;
     gap: 1em;
     width: 100%;
-    max-width: 200px;
+    max-width: 800px;
+}
+.watchlistSelectDiv{
+    width: 100%;
+    max-width: 800px;
+}
+
+.watchlistStocks{
+    max-width: 800px;
+    width: 100%;
+    gap:1rem;
+
 }

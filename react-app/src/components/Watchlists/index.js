@@ -92,7 +92,7 @@ function Watchlists() {
                 </div>
             </div>
 
-            <form onSubmit={handleNewWatchlist}>
+            <form className="watchlistSelectDiv" onSubmit={handleNewWatchlist}>
                 <div className="watchlistSelect">
                     <label>
                         Watchlist
@@ -121,23 +121,26 @@ function Watchlists() {
                 <button className="deleteWatchlist" onClick={handleDelete}>Delete Watchlist</button>
             </div>
             {watchlists[watchlistId]?.stocks.length > 0 && <div className="populatedWatchlist">
-
+                        Select a Stock from the Watchlist to Delete
                 {watchlists &&
                     watchlists[watchlistId]?.stocks.map((s) => {
 
                         return (
-                            <OpenModalButton watchlistId={watchlistId} stockId={s.id} modalComponent={<WatchlistModal watchlistId={watchlistId} stockId={s.id} />} isLink={true} key={s.id}
-                                buttonText={
-                                    <div className="watchlist_entry">
-                                        <div className="company_name">{s.company_name}</div>
-                                        <div className="watchlistTicker">{s.ticker_symbol}</div>
-                                        <div className="price">{s.base_price}</div>
-                                        {/* <div className="change">Todays Change%</div> */}
-                                    </div>
-                                }
+                            <button className="watchlistStocks" key={s.id}>
 
-                            >
-                            </OpenModalButton>
+                                <OpenModalButton watchlistId={watchlistId} stockId={s.id} modalComponent={<WatchlistModal watchlistId={watchlistId} stockId={s.id} />} isLink={true} 
+                                    buttonText={
+                                        <div className="watchlist_entry">
+                                            <div className="company_name">{s.company_name}</div>
+                                            <div className="watchlistTicker">{s.ticker_symbol}</div>
+                                            <div className="price">${s.base_price} per share</div>
+                                            {/* <div className="change">Todays Change%</div> */}
+                                        </div>
+                                    }
+
+                                >
+                                </OpenModalButton>
+                            </button>
                         )
                     })
 

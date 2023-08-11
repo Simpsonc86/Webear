@@ -30,7 +30,7 @@ export default function WatchlistModal({stockId, watchlistId}) {
     }
     return (
         <div className="deleteConfirm">
-            <div>Delete?</div>
+            <div>Delete Selected Stock from Watchlist?</div>
             <button className="yesDelete" onClick={handleDelete}>Yes</button>
             <button className="noDelete" onClick={handleNotDelete}>No</button>
 
