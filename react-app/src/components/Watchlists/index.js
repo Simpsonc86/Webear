@@ -20,12 +20,15 @@ function Watchlists() {
     const watchlists = useSelector((state) => (state.watchlist.watchlists ? state.watchlist.watchlists : {}))
     const addedWatchlist = useSelector((state) => (state.watchlist?.watchlist ? state.watchlist.watchlist : {}))
 
-    let watchlistNames = []
+    let watchlistNames = Object.values(watchlists)
+    console.log("Watchlist Array: ",watchlistNames);
 
-    for (let w in watchlists) {
+    // let watchlistNames = []
 
-        watchlistNames.push({ name: watchlists[w].name, id: watchlists[w].id })
-    }
+    // for (let w in watchlists) {
+
+    //     watchlistNames.push({ name: watchlists[w].name, id: watchlists[w].id })
+    // }
 
     useEffect(() => {
         if (addedWatchlist.id) {
@@ -49,10 +52,10 @@ function Watchlists() {
         const user_id = sessionUser.id
         const newWatchlist = { name, user_id }
 
-        const data = await dispatch(addWatchlistThunk(newWatchlist))
+        await dispatch(addWatchlistThunk(newWatchlist))
 
-        if (data.errors)
-            window.alert("Your watchlist needs a name!")
+        // if (data.errors)
+        //     window.alert("Your watchlist needs a name!")
         watchlistNames.push({ name: addedWatchlist.name, id: addedWatchlist.id })
         setName("")
 
@@ -141,8 +144,9 @@ function Watchlists() {
                 }
 
             </div>}
-            {watchlistNames[watchlistId-1]?.name&&<div className="watchlistAddStock">
-                <label>{watchlistNames[watchlistId-1]?.name?`Add Stock to ${watchlistNames[watchlistId-1]?.name}`:`Select a watchlist from the list above`}</label>
+            {console.log("This is the watchlist for the add input ",watchlists, " watchlistId: ", watchlistId)}
+            {watchlistId&&<div className="watchlistAddStock">
+                <label>{watchlistId?`Add Stock to ${watchlistNames[watchlistNames.length-1]?.name}`:`Select a watchlist from the list above`}</label>
                 <Search watchlistId={watchlistId} />
             </div>}
          

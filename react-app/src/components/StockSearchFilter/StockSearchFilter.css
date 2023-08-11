@@ -2,14 +2,16 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    background-color: white ;
+    background-color: #ffffff ;
     /* text-decoration: none; */
     z-index: 7;
     margin: 5px 0;
     padding:5px;
+    border: 6px dotted #459ff0 ;;
+    max-height: 200px;
     border-radius: 3px;
     overflow-y: scroll;
-    transform: translateX(100px) translateY(-600px);
+    transform: translateX(100px) translateY(-100px);
     /* height:400px; */
     /* color:#001b39; */
 }
