@@ -48,9 +48,11 @@ const Portfolio = () => {
     useEffect(() => {
         dispatch((getUserTransactionsThunk()));
     }, [dispatch]);
-    return (
-        <div>
+    return ( 
+        <div className="portfolioCont">
+        <div className="portfolioInner">
 
+        
                {sessionUser && <div className="portGrid">
                 <div className="headings">
                 <h3 className="headSymbol">Symbol</h3>
@@ -65,10 +67,11 @@ const Portfolio = () => {
                     <div className="company">{stock.stock.company_name}</div>
                     <div className="quantity">{stock.sharesOwned}</div>
                     <div className="mktValue">{(stock.sharesOwned * stock.stock.base_price).toFixed(2)}</div>
-                    <div className="avgPrice">{stock.stock.base_price}</div>
+                    <div className="avgPrice">${stock.stock.base_price} per share</div>
                 </div>
             ))}
             </div>}
+            </div>
         </div>
     )
 

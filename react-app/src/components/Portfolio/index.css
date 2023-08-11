@@ -4,54 +4,89 @@
 }
 
 .ticker {
+    padding:.5rem;
+    /* margin:.5rem; */
     width: 18%;
-    border: 1px solid lightgray;
+    border: 1px solid slategray;
+    word-wrap: break-word;
 }
 
 .company {
+    padding:.5rem;
     width: 28%;
-    border: 1px solid lightgray;
+    border: 1px solid slategray;
+    word-wrap: break-word;
 }
 .quantity{
+    padding:.5rem;
     width: 18%;
-    border: 1px solid lightgray;
+    border: 1px solid slategray;
+    word-wrap: break-word;
 }
 .mktValue {
+    padding:.5rem;
     width: 18%;
-    border: 1px solid lightgray;
+    border: 1px solid slategray;
+    word-wrap: break-word;
 }
 
 .avgPrice {
     width: 18%;
-    border: 1px solid lightgray;
+    border: 1px solid slategray;
+    padding:.5rem;
+    word-wrap: break-word;
 }
 .headings{
+    word-wrap: break-word;
     display: flex;
-    border: 1px solid lightgray;
+    /* border: 2px solid slategray; */
 }
 
 .portGrid{
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr; */
 }
-
+.headSymbol,.headName,.headQuantity,.headMktValue,.headAvgPrice,.ticker,.company,.quantity,.mktValue,.avgPrice{
+    margin:0;
+    padding-left:8px;
+    padding-right:8px;
+}
 .headSymbol{
+    border: 1px solid slategray;  
     width: 18%;
-    border: 1px solid lightgray;
 }
 .headName{
     width: 28%;
-    border: 1px solid lightgray;
+    border: 1px solid slategray;
+    word-wrap: break-word;
 }
 .headQuantity{
     width: 18%;
-    border: 1px solid lightgray;
+    border: 1px solid slategray;
+    word-wrap: break-word;
 }
 .headMktValue{
     width: 18%;
-    border: 1px solid lightgray;
+    border: 1px solid slategray;
+    word-wrap: break-word;
 }
 .headAvgPrice{
     width: 18%;
-    border: 1px solid lightgray;
+    border: 1px solid slategray;
+    word-wrap: break-word;
+}
+.portfolioCont{
+    width: 100%;
+    /* max-width: 800px; */
+    display: flex;  
+    justify-content: center;
+    height:88vh;
+    /* max-height: 88vh; */
+    overflow-y: scroll;
+}
+.portfolioInner{
+    width: 100%;
+    max-width: 1920px;
+    border: 1px solid slategray;
+    height: fit-content;
 }
