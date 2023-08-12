@@ -92,6 +92,7 @@ function Watchlists() {
 
                 </div>
             </div>
+            &nbsp;
 
             <form className="watchlistSelectDiv" onSubmit={handleNewWatchlist}>
                 <div className="watchlistSelect">
@@ -121,6 +122,7 @@ function Watchlists() {
             <div className="deleteWatchlistDiv">
                 <button className="deleteWatchlist" onClick={handleDelete}>Delete Watchlist</button>
             </div>
+            &nbsp;
             {watchlists[watchlistId]?.stocks.length > 0 && <div className="populatedWatchlist">
                         Select a Stock from the Watchlist to Delete
                 {watchlists &&
@@ -146,9 +148,10 @@ function Watchlists() {
                     })
 
                 }
+                &nbsp;
 
             </div>}
-            {console.log("This is the watchlist for the add input ", watchlists, " watchlistId: ", watchlistId)}
+            {/* {console.log("This is the watchlist for the add input ", watchlists, " watchlistId: ", watchlistId)} */}
             {watchlistId && <div className="watchlistAddStock">
                 <label>{watchlistId ? `Add Stock to ${watchlistNames[watchlistNames.length - 1]?.name}` : `Select a watchlist from the list above`}</label>
                 <Search watchlistId={watchlistId} />

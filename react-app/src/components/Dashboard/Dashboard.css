@@ -88,9 +88,11 @@
 }
 
 .dashboard-profile-search-div {
-    height: 40px;
+    /* height: 6rem; */
+    min-height: 80px;
     padding: 0px 10%;
     margin: 10px 0;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
