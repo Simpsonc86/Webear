@@ -79,14 +79,19 @@
     width: 100%;
     /* max-width: 800px; */
     display: flex;  
-    justify-content: center;
-    height:88vh;
-    /* max-height: 88vh; */
-    overflow-y: scroll;
+    /* justify-content: center; */
+    height:100%;
+    max-height: fit-content;
+    min-height: 88vh;
+    flex-direction: column;
+    align-items: center;
+    /* gap:10vh; */
+    /* overflow-y: scroll; */
 }
 .portfolioInner{
     width: 100%;
     max-width: 1920px;
     border: 1px solid slategray;
     height: fit-content;
+    /* overflow-y: scroll; */
 }

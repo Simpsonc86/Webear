@@ -130,3 +130,7 @@ select:hover {
     gap:1rem;
 
 }
+.watchlistInput{
+    width:99%;
+    max-width: 800px;
+}

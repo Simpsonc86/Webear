@@ -14,6 +14,7 @@ import Transaction from "./components/Transaction";
 import StockDetails from "./components/StockDetails";
 import Dashboard from "./components/Dashboard";
 import Footer from "./components/Footer";
+import Mobile from "./components/Mobile";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ function App() {
   return (
     <>
 
+<Mobile/>
       {isLoaded && (
         <Switch>
           <Route exact path="/">

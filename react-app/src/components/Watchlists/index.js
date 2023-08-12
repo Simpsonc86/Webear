@@ -78,6 +78,7 @@ function Watchlists() {
                     <form className="watchlistAddList" onSubmit={handleNewWatchlist}>
                         <label><div>Add New Watchlist</div></label>
                         <input
+                            className="watchlistInput"
                             type="watchlist_name"
                             placeholder="Watchlist name"
                             value={name}

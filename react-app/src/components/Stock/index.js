@@ -47,7 +47,7 @@ function Stocks() {
 
 
     return (
-        <>
+        <div className="all-stocks-main-div">
             <h2 className="all-stocks-title">All Stocks</h2>
             <div className="all-stocks-filter-div">
                 <p>Sort By: </p>
@@ -76,7 +76,7 @@ function Stocks() {
                     </NavLink>
                 ))}
             </div>
-        </>
+        </div>
     )
 }
 
