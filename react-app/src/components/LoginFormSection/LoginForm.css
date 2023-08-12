@@ -1,31 +1,39 @@
-.formclass{
+.formclass {
     display: flex;
     flex-direction: column;
-    margin-left: 100px;
-    gap: 30px;
+    /* margin-left: 100px; */
+    gap: 2rem;
+    width: 100%;
+    align-items: center;
 }
-.email{
+
+.email {
     display: flex;
     flex-direction: column;
     gap: 10px;
 
 }
-.password{
+
+.password {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-.loginInputs{
-    width: 70%;
+
+.loginInputs {
+    /* width: 70%; */
     height: 50px;
     border: gray 1px solid;
     border-radius: 20px;
 }
-.formtext{
+
+.formtext {
     align-items: start;
     padding-left: 10px;
 }
-.submit, .demo-link{
+
+.submit,
+.demo-link {
     margin-top: 30px;
     height: 60px;
     border-radius: 15px;
@@ -35,7 +43,8 @@
     border: 0px;
     font-size: 1em;
 }
-.botCont{
+
+.botCont {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,14 +52,24 @@
     margin-top: 30px;
 }
 
-.header{
+.header {
     margin-left: 100px;
     margin-bottom: 0px;
 }
 
-.demo-link{
+.demo-link {
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    margin: 0;
+}
+
+.signupdiv {
+    margin: 0;
+    padding: 0;
+}
+
+label {
+    width: 70%;
 }

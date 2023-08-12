@@ -7,7 +7,8 @@ import Footer from '../Footer';
 
 export default function LandingPage({ isLoaded }) {
     return (
-        <>
+        <><div className='landing-page-containter'>
+
             <div className='outer-div-container'>
                 <video autoPlay muted loop className="landing-page-video" src="landingPageVid.mp4" >
                 </video>
@@ -20,9 +21,11 @@ export default function LandingPage({ isLoaded }) {
 
                     <NavLink className="get-started" to="/signup">Get Started</NavLink>
                 </div>
-                <Footer/>
 
             </div>
+        </div>
+           
+            
         </>
     )
 }

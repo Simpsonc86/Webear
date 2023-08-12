@@ -1,3 +1,12 @@
+.stock-details-main-div{
+    height: 100%;
+    min-height: 90vh;
+}
+.stock-details-chart{
+    height:100%;
+    /* min-width: none; */
+}
+
 .stock-details-title{
     margin-left: 100px;
     color:#001b39;
@@ -32,6 +41,7 @@
     display: flex;
     max-width: 60%;
     width:100%;
+       
     /* border:10px solid red; */
     border-radius: 5px;
     padding:20px 20px;

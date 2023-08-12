@@ -27,14 +27,16 @@
 }
 .outer-nav-div{
   width:100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .main-nav-div{
   /* padding: 0 20px; */
   display: flex;
   flex-wrap: wrap;
-  padding:0 100px;
-  /* width: 100%; */
+  padding:0 10%;
+  width: 100%;
   min-height:80px;
   height:auto;
   justify-content: space-between;

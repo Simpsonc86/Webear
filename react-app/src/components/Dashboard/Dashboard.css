@@ -1,6 +1,6 @@
 .dashboard-container-div {
     display: flex;
-    height: 100vh;
+    height: 90vh;
     max-width: 100%;
     width: auto;
     border: 1px solid #b7b7b7;
@@ -12,8 +12,8 @@
     padding: 10px 10px;
     max-height: 50vh;
     height: 100%;
-    overflow-y: scroll;
-    overflow-x:scroll;
+    overflow-y:auto;
+    overflow-x:auto;
 
 }
 
@@ -57,6 +57,7 @@
     width: 80%;
     display: flex;
     flex-direction: column;
+    /* overflow-y: hidden; */
     /* justify-content: space-between; */
     /* border: 1px solid black; */
 
@@ -64,8 +65,8 @@
 
 .charts-container-div {
     padding: 10px;
-    height: 60vh;
-    margin: 0;
+    height: 65vh;
+    margin: 1rem;
     /* border-bottom: 1px solid #292F4F; */
 }
 
@@ -74,7 +75,7 @@
     max-height: 40vh;
     height: 100%;
     border-top: 1px groove #b7b7b7;
-    overflow-y: scroll;
+    overflow-y:scroll;
 }
 
 .dashboard-transactions {
@@ -87,12 +88,16 @@
 }
 
 .dashboard-profile-search-div {
-    height: 40px;
-    padding: 0px 40px;
+    /* height: 6rem; */
+    min-height: 80px;
+    padding: 0px 10%;
     margin: 10px 0;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* padding:0 10%; */
+
 
 }
 

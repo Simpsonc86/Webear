@@ -57,11 +57,12 @@ export const addStockToWatchlistThunk = (stock_id, watchlist_id) => async (dispa
 
 
     if (response.ok) {
-
         const res = await response.json()
 
 
+
         dispatch(addStockToWatchlist(res.watchlistId, res.stock))
+        return res;
     }
     else {
 

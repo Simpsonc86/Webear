@@ -8,9 +8,11 @@
     margin: 5px 0;
     padding:5px;
     border-radius: 3px;
+    max-height: 600px;
     overflow-y: scroll;
     /* transform: translateX(270%); */
     /* transform: translateX(160px) translateY(-700px); */
+    /* transform: translateY(10%); */
     color:#001b39;
 }
 

@@ -49,26 +49,32 @@ const Portfolio = () => {
         dispatch((getUserTransactionsThunk()));
     }, [dispatch]);
     return (
-        <div>
+        <div className="portfolioCont">
+            {console.log(sessionUser)}
+            <h3 className="portfolio-end">{sessionUser.username}'s Portfolio</h3>
+            <div className="portfolioInner">
 
-               {sessionUser && <div className="portGrid">
-                <div className="headings">
-                <h3 className="headSymbol">Symbol</h3>
-                <h3 className="headName">Name</h3>
-                <h3 className="headQuantity">Quantity</h3>
-                <h3 className="headMktValue">Mkt Value</h3>
-                <h3 className="headAvgPrice">Last Price</h3>
-                </div>
-            {portfolioList.map((stock) => (
-                <div className="holding">
-                    <div className="ticker">{stock.stock.ticker_symbol}</div>
-                    <div className="company">{stock.stock.company_name}</div>
-                    <div className="quantity">{stock.sharesOwned}</div>
-                    <div className="mktValue">{(stock.sharesOwned * stock.stock.base_price).toFixed(2)}</div>
-                    <div className="avgPrice">{stock.stock.base_price}</div>
-                </div>
-            ))}
-            </div>}
+
+                {sessionUser && <div className="portGrid">
+                    <div className="headings">
+                        <h3 className="headSymbol">Symbol</h3>
+                        <h3 className="headName">Name</h3>
+                        <h3 className="headQuantity">Quantity</h3>
+                        <h3 className="headMktValue">Mkt Value</h3>
+                        <h3 className="headAvgPrice">Last Price</h3>
+                    </div>
+                    {portfolioList.map((stock) => (
+                        <div className="holding">
+                            <div className="ticker">{stock.stock.ticker_symbol}</div>
+                            <div className="company">{stock.stock.company_name}</div>
+                            <div className="quantity">{stock.sharesOwned}</div>
+                            <div className="mktValue">{(stock.sharesOwned * stock.stock.base_price).toFixed(2)}</div>
+                            <div className="avgPrice">${stock.stock.base_price} per share</div>
+                        </div>
+                    ))}
+                </div>}
+            </div>
+                <h3 className="portfolio-end">End of Portfolio</h3>
         </div>
     )
 

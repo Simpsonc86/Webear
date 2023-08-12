@@ -45,30 +45,30 @@ function SignupFormPage() {
 
   return (
     <>
-      <h1 class="signupHeader">Sign Up</h1>
-      <form class="signupFormClass" onSubmit={handleSubmit}>
+      <h1 className="signupHeader">Sign Up</h1>
+      <form className="signupFormClass" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <label class = "signupFirst">
+        <label className = "signupFirst">
           First Name
           <input type="text"
-          class = "signupInput"
+          className = "signupInput"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           required />
         </label>
-        <label class = "signupLast">
+        <label className = "signupLast">
           Last Name
           <input type="text"
-          class = "signupInput"
+          className = "signupInput"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
           required />
         </label>
-        <label class = "signupDOB">
+        <label className = "signupDOB">
           Date of Birth
           <input type="date"
           value={dob}
@@ -76,52 +76,52 @@ function SignupFormPage() {
           required
           />
         </label>
-        <label class="signupEmail">
+        <label className="signupEmail">
           Email
           <input
-          class = "signupInput"
+          className = "signupInput"
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </label>
-        <label class="signupUsername">
+        <label className="signupUsername">
           Username
           <input
-          class = "signupInput"
+          className = "signupInput"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
         </label>
-        <label class="signupPassword">
+        <label className="signupPassword">
           Password
           <input
-          class = "signupInput"
+          className = "signupInput"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </label>
-        <label class="signupConfirmPassword">
+        <label className="signupConfirmPassword">
           Confirm Password
           <input
-          class = "signupInput"
+          className = "signupInput"
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
         </label>
-        <button class = "signupButton" type="submit">Sign Up</button>
+        <button className = "submit" type="submit">Sign Up</button>
+        <div className="sigupdiv">Already have an account?</div>
+        <button  className="demo-link" onClick={() => history.push("/login")}>Login</button>
       </form>
-      <div class="signupBotCont">
-        <p>Already have an account?</p>
-        <button  onClick={() => history.push("/login")}>Login</button>
-      </div>
+      {/* <div className="signupBotCont">
+      </div> */}
     </>
   );
 }

@@ -20,12 +20,15 @@ function Watchlists() {
     const watchlists = useSelector((state) => (state.watchlist.watchlists ? state.watchlist.watchlists : {}))
     const addedWatchlist = useSelector((state) => (state.watchlist?.watchlist ? state.watchlist.watchlist : {}))
 
-    let watchlistNames = []
+    let watchlistNames = Object.values(watchlists)
+    console.log("Watchlist Array: ", watchlistNames);
 
-    for (let w in watchlists) {
+    // let watchlistNames = []
 
-        watchlistNames.push({ name: watchlists[w].name, id: watchlists[w].id })
-    }
+    // for (let w in watchlists) {
+
+    //     watchlistNames.push({ name: watchlists[w].name, id: watchlists[w].id })
+    // }
 
     useEffect(() => {
         if (addedWatchlist.id) {
@@ -49,10 +52,10 @@ function Watchlists() {
         const user_id = sessionUser.id
         const newWatchlist = { name, user_id }
 
-        const data = await dispatch(addWatchlistThunk(newWatchlist))
+        await dispatch(addWatchlistThunk(newWatchlist))
 
-        if (data.errors)
-            window.alert("Your watchlist needs a name!")
+        // if (data.errors)
+        //     window.alert("Your watchlist needs a name!")
         watchlistNames.push({ name: addedWatchlist.name, id: addedWatchlist.id })
         setName("")
 
@@ -70,11 +73,12 @@ function Watchlists() {
 
     return (
         <div className="watchlistContainer">
-               <div>
-                <div>
+            <div className="watchlistOuterDiv">
+                <div className="watchlistInnerDiv">
                     <form className="watchlistAddList" onSubmit={handleNewWatchlist}>
                         <label><div>Add New Watchlist</div></label>
                         <input
+                            className="watchlistInput"
                             type="watchlist_name"
                             placeholder="Watchlist name"
                             value={name}
@@ -88,8 +92,9 @@ function Watchlists() {
 
                 </div>
             </div>
-           
-            <form onSubmit={handleNewWatchlist}>
+            &nbsp;
+
+            <form className="watchlistSelectDiv" onSubmit={handleNewWatchlist}>
                 <div className="watchlistSelect">
                     <label>
                         Watchlist
@@ -117,35 +122,41 @@ function Watchlists() {
             <div className="deleteWatchlistDiv">
                 <button className="deleteWatchlist" onClick={handleDelete}>Delete Watchlist</button>
             </div>
-     {    watchlists[watchlistId]?.stocks.length>0&&   <div className="populatedWatchlist">
-
+            &nbsp;
+            {watchlists[watchlistId]?.stocks.length > 0 && <div className="populatedWatchlist">
+                        Select a Stock from the Watchlist to Delete
                 {watchlists &&
                     watchlists[watchlistId]?.stocks.map((s) => {
 
                         return (
-                            <OpenModalButton watchlistId={watchlistId} stockId={s.id} modalComponent={<WatchlistModal watchlistId={watchlistId} stockId={s.id} />} isLink={true} key={s.id}
-                                buttonText={
-                                    <div className="watchlist_entry">
-                                        <div className="company_name">{s.company_name}</div>
-                                        <div className="watchlistTicker">{s.ticker_symbol}</div>
-                                        <div className="price">{s.base_price}</div>
-                                        {/* <div className="change">Todays Change%</div> */}
-                                    </div>
-                                }
+                            <button className="watchlistStocks" key={s.id}>
 
-                            >
-                            </OpenModalButton>
+                                <OpenModalButton watchlistId={watchlistId} stockId={s.id} modalComponent={<WatchlistModal watchlistId={watchlistId} stockId={s.id} />} isLink={true} 
+                                    buttonText={
+                                        <div className="watchlist_entry">
+                                            <div className="company_name">{s.company_name}</div>
+                                            <div className="watchlistTicker">{s.ticker_symbol}</div>
+                                            <div className="price">${s.base_price} per share</div>
+                                            {/* <div className="change">Todays Change%</div> */}
+                                        </div>
+                                    }
+
+                                >
+                                </OpenModalButton>
+                            </button>
                         )
                     })
 
                 }
+                &nbsp;
 
             </div>}
-            {watchlistNames[watchlistId-1]?.name&&<div className="watchlistAddStock">
-                <label>{watchlistNames[watchlistId-1]?.name?`Add Stock to ${watchlistNames[watchlistId-1]?.name}`:`Select a watchlist from the list above`}</label>
+            {/* {console.log("This is the watchlist for the add input ", watchlists, " watchlistId: ", watchlistId)} */}
+            {watchlistId && <div className="watchlistAddStock">
+                <label>{watchlistId ? `Add Stock to ${watchlistNames[watchlistNames.length - 1]?.name}` : `Select a watchlist from the list above`}</label>
                 <Search watchlistId={watchlistId} />
             </div>}
-         
+
 
         </div>
     )
@@ -160,17 +171,17 @@ export default Watchlists;
 
 
 // let response;
-    // let r
-    // const func = async () => {
+// let r
+// const func = async () => {
 
-    //     response = await fetch("/api/watchlist/", {
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //     },
+//     response = await fetch("/api/watchlist/", {
+//     headers: {
+//         "Content-Type": "application/json",
+//     },
 
 
-    // });
-    //     r = await response.json()
-    //     console.log(r)
-    // }
-    // func();
+// });
+//     r = await response.json()
+//     console.log(r)
+// }
+// func();

@@ -1,9 +1,12 @@
 .landing-page-video{
+    /* height:100vh; */
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: content-box;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* box-sizing: content-box; */
+    /* height:max-content; */
+
 }
 .floating-text-box{
     display: flex;
@@ -65,11 +68,14 @@
 
 .footer{
     display: flex;
-    padding:20px;
+    /* padding:20px; */
     margin:2rem 0;
     gap:30px;
     justify-content: center;
-    align-items: center;
+    align-items: end;
+    /* position: absolute; */
+    /* left: 40vh; */
+    /* top:-60vh; */
 }
 .github-links{
     display: flex;
@@ -102,3 +108,7 @@
     color:White;
     /* background-color: #001b39; */
 }
+.landing-page-containter{
+    height: 88vh;
+}
+
