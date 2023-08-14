@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 // import ProfileButton from './ProfileButton';
 import './LandingPage.css';
-import Footer from '../Footer';
+// import Footer from '../Footer';
 
 export default function LandingPage({ isLoaded }) {
     return (

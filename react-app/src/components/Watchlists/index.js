@@ -21,7 +21,7 @@ function Watchlists() {
     const addedWatchlist = useSelector((state) => (state.watchlist?.watchlist ? state.watchlist.watchlist : {}))
 
     let watchlistNames = Object.values(watchlists)
-    console.log("Watchlist Array: ", watchlistNames);
+    // console.log("Watchlist Array: ", watchlistNames);
 
     // let watchlistNames = []
 

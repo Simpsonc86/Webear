@@ -1,6 +1,6 @@
 .mobileView{
     background-color: transparent;
-    color: white;
+    color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,6 +25,7 @@
 @media screen and (max-width:1279px) {
     .mobileView{
         background-color: blue;
+        color: white;
         z-index: 8;
     }
 }

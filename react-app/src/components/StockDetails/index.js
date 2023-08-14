@@ -1,20 +1,20 @@
-import { useSelector, useDispatch } from "react-redux";
-import { getAllStocksThunk } from "../../store/stocks";
+import { useSelector } from "react-redux";
+// import { getAllStocksThunk } from "../../store/stocks";
 import { useParams, useHistory } from "react-router-dom";
 import "./StockDetails.css"
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import StockChart from "../StockChart"
 
 function StockDetails() {
 
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const id = useParams()
     const history = useHistory()
     // console.log("Id from params: ",id.stockId);
 
-    useEffect(() => {
-        dispatch(getAllStocksThunk());
-    }, [dispatch,]);
+    // useEffect(() => {
+    //     dispatch(getAllStocksThunk());
+    // }, [dispatch,]);
 
     const stocks =
         useSelector((state) => (state.stocks.stocks ? Object.values(state.stocks.stocks) : [])
