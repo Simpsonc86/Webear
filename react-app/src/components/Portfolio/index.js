@@ -51,7 +51,7 @@ const Portfolio = () => {
     return (
         <div className="portfolioCont">
             {console.log(sessionUser)}
-            <h3 className="portfolio-end">{sessionUser.username}'s Portfolio</h3>
+            <h3 className="portfolio-start">{sessionUser.username}'s Portfolio</h3>
             <div className="portfolioInner">
 
 

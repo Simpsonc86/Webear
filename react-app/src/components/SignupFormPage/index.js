@@ -47,11 +47,11 @@ function SignupFormPage() {
     <>
       <h1 className="signupHeader">Sign Up</h1>
       <form className="signupFormClass" onSubmit={handleSubmit}>
-        <ul>
+       { errors.length>0 && <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
-        </ul>
+        </ul>}
         <label className = "signupFirst">
           First Name
           <input type="text"
@@ -118,7 +118,7 @@ function SignupFormPage() {
         </label>
         <button className = "submit" type="submit">Sign Up</button>
         <div className="sigupdiv">Already have an account?</div>
-        <button  className="demo-link" onClick={() => history.push("/login")}>Login</button>
+        <button  className="demo-link signup-bottom" onClick={() => history.push("/login")}>Login</button>
       </form>
       {/* <div className="signupBotCont">
       </div> */}

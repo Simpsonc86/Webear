@@ -36,6 +36,26 @@ export default function Dashboard() {
             <div className="dashboard-profile-search-div">
                 <div>
                     <ProfileButton user={sessionUser} />
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <NavLink className="nav-links" exact to="/stocks">Stocks</NavLink>
                 </div>
                 <div>
                     <DashboardStockSearch />

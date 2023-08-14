@@ -34,7 +34,7 @@
 
 .submit,
 .demo-link {
-    margin-top: 30px;
+    /* margin-top: 30px; */
     height: 60px;
     border-radius: 15px;
     width: 70%;
@@ -62,7 +62,7 @@
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    margin: 0;
+    /* margin: 0; */
 }
 
 .signupdiv {

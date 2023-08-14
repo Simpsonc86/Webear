@@ -1,5 +1,5 @@
 .portfolio-victory-chart {
-    max-width: 90%;
+    max-width: 100%;
 
 }
 
@@ -17,5 +17,5 @@
 .charts-container-div {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
 }
