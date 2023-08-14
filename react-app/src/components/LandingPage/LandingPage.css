@@ -75,7 +75,7 @@
     /* margin:0 .5rem; */
     gap:1rem;
     justify-content: center;
-    align-items: end;
+    align-items: flex-end;
     position: absolute;
     /* left: 40vh; */
     /* top:-60vh; */
