@@ -37,11 +37,11 @@ function LoginFormSection() {
     <>
       <h1 className="login-header">Log in to Webear</h1>
       <form className="formclass" onSubmit={handleSubmit}>
-        <ul>
+       {errors.length>0&& <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
-        </ul>
+        </ul>}
         <label className="email">
           <p className="formtext">Email</p>
           <input

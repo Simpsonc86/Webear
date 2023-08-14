@@ -28,55 +28,58 @@ function App() {
 
 <Mobile/>
       {isLoaded && (
+        <>
         <Switch>
           <Route exact path="/">
             <Navigation isLoaded={isLoaded} />
             <LandingPage />
-            <Footer/>
+            {/* <Footer/> */}
           </Route>
           <Route path="/login" >
             <Login />
-            <Footer/>
+            {/* <Footer/> */}
           </Route>
           <Route path="/add_to_balance">
             <Navigation isLoaded={isLoaded} />
             <Balance />
-            <Footer/>
+            {/* <Footer/> */}
           </Route>
           <Route exact path="/stocks/:stockId">
             <Navigation isLoaded={isLoaded} />
             <StockDetails />
-            <Footer/>
+            {/* <Footer/> */}
           </Route>
           <Route path="/stocks">
             <Navigation isLoaded={isLoaded} />
             <Stocks />
-            <Footer/>
+            {/* <Footer/> */}
           </Route>
           <Route path="/portfolio">
             <Navigation isLoaded={isLoaded} />
             <Portfolio />
-            <Footer/>
+            {/* <Footer/> */}
           </Route>
           <Route path="/watchlist">
             <Navigation isLoaded={isLoaded} />
             <Watchlists />
-            <Footer/>
+            {/* <Footer/> */}
           </Route>
           <Route path="/signup">
             <Signup />
-            <Footer/>
+            {/* <Footer/> */}
           </Route>
           <Route path="/trade">
             <Navigation isLoaded={isLoaded} />
             <Transaction />
-            <Footer/>
+            {/* <Footer/> */}
           </Route>
           <Route path="/dashboard">
             <Dashboard isLoaded={isLoaded} />
-            <Footer/>
+            {/* <Footer/> */}
           </Route>
         </Switch>
+        <Footer/>
+        </>
       )}
     </>
   );

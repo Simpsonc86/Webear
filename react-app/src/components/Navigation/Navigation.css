@@ -144,3 +144,6 @@
   border:0px;
   padding:0;
 }
+.profile-btn:hover{
+cursor: pointer;
+}

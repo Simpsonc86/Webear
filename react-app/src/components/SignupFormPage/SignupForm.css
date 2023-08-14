@@ -44,7 +44,7 @@
 }
 .signupHeader{
     /* margin-left: 120px; */
-    margin:0;
+    margin:2rem 0;
     padding:0;
 }
 .signupBotCont{
@@ -70,4 +70,7 @@
     flex-direction: column;
     gap: 10px;
     width: 70%;
+}
+.signup-bottom{
+    margin-bottom: 2rem;
 }

@@ -50,6 +50,7 @@ function StockDetails() {
                         </div>
 
                     </div>
+                    &nbsp;
 
                     <button className="buy-button" onClick={() => history.push('/login')}>Buy Shares</button>
 

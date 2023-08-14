@@ -3,7 +3,7 @@ import "../LandingPage/LandingPage.css"
 export default function Footer() {
     return (
         <div className='footer'>
-            <p>Disclaimer: This is not a real financial website with real-time stock prices and purchases!</p>
+            <p className="disclaimer">Disclaimer: This is not a real financial website with real-time stock prices and purchases!</p>
             <div className="github-links">
                 Contributor Links:
                 <a className="group-link" href="https://github.com/Simpsonc86" target="_blank" rel="noopener noreferrer">

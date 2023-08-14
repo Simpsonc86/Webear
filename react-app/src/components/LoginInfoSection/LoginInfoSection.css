@@ -6,7 +6,7 @@
     height: 100%;
     display: flex   ;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .title{
@@ -22,8 +22,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 40vh;
+    justify-content: space-around;
+    padding-bottom: 20%;
     flex-wrap: wrap;
+    height: 100%;
 
 }
 .bigText{

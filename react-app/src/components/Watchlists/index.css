@@ -49,9 +49,10 @@
     flex-direction: column;
     gap: 1.5em;
     width:max(100%, 200px);
-    height:90vh;
+    /* height:90vh; */
     /* justify-content: center; */
     align-items: center;
+    margin-bottom: 4.5rem;
 
 }
 .watchlistOuterDiv, .watchlistInnerDiv{
