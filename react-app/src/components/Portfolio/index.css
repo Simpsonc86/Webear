@@ -86,7 +86,7 @@
     /* max-width: 800px; */
     display: flex;  
     /* justify-content: center; */
-    height:100%;
+    height:fit-content;
     max-height: fit-content;
     /* min-height: 88vh; */
     flex-direction: column;
