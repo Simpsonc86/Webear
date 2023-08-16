@@ -44,8 +44,8 @@
 }
 .headSymbol,.headName,.headQuantity,.headMktValue,.headAvgPrice{
     padding:1rem 0;
-    font-size: 150%;
-    /* font-weight: bolder; */
+    font-size: 125%;
+    font-weight: bolder;
 }
 
 .portGrid{
@@ -93,7 +93,7 @@
     align-items: center;
     /* gap:10vh; */
     /* overflow-y: scroll; */
-    margin-bottom: 4.5rem;
+    /* margin-bottom: 4.5rem; */
 }
 .portfolioInner{
     width: 100%;

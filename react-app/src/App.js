@@ -15,6 +15,7 @@ import StockDetails from "./components/StockDetails";
 import Dashboard from "./components/Dashboard";
 import Footer from "./components/Footer";
 import Mobile from "./components/Mobile";
+import Margin from "./components/Margin"
 
 function App() {
   const dispatch = useDispatch();
@@ -57,6 +58,7 @@ function App() {
           <Route path="/portfolio">
             <Navigation isLoaded={isLoaded} />
             <Portfolio />
+            <Margin/>
             {/* <Footer/> */}
           </Route>
           <Route path="/watchlist">
