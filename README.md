@@ -34,7 +34,7 @@ Redux,
 Victory JS,
 Validator JS
 
-#Project Goals
+# Project Goals
 
 The primary goals of this project are as follows:
 
